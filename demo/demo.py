@@ -5,7 +5,7 @@ from cloudmersive_image_api_client .rest import ApiException
 from pprint import pprint
 
 api_instance = cloudmersive_image_api_client.FaceApi()
-image_file = 'C:\\temp\\woman-car.jpg' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = 'C:\\temp\\input.jpg' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 api_instance.api_client.configuration.api_key = {}
 api_instance.api_client.configuration.api_key['Apikey'] = 'f0c513bc-8c00-4491-830e-3e83b015feb6'
