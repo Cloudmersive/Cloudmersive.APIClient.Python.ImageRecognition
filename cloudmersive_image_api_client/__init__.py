@@ -17,6 +17,7 @@ from __future__ import absolute_import
 
 # import apis into sdk package
 from cloudmersive_image_api_client.api.artistic_api import ArtisticApi
+from cloudmersive_image_api_client.api.edit_api import EditApi
 from cloudmersive_image_api_client.api.face_api import FaceApi
 from cloudmersive_image_api_client.api.nsfw_api import NsfwApi
 from cloudmersive_image_api_client.api.recognize_api import RecognizeApi
@@ -26,8 +27,16 @@ from cloudmersive_image_api_client.api.resize_api import ResizeApi
 from cloudmersive_image_api_client.api_client import ApiClient
 from cloudmersive_image_api_client.configuration import Configuration
 # import models into sdk package
+from cloudmersive_image_api_client.models.age_detection_result import AgeDetectionResult
+from cloudmersive_image_api_client.models.detected_object import DetectedObject
+from cloudmersive_image_api_client.models.draw_rectangle_instance import DrawRectangleInstance
+from cloudmersive_image_api_client.models.draw_rectangle_request import DrawRectangleRequest
+from cloudmersive_image_api_client.models.draw_text_instance import DrawTextInstance
+from cloudmersive_image_api_client.models.draw_text_request import DrawTextRequest
 from cloudmersive_image_api_client.models.face import Face
 from cloudmersive_image_api_client.models.face_locate_response import FaceLocateResponse
 from cloudmersive_image_api_client.models.image_description_response import ImageDescriptionResponse
 from cloudmersive_image_api_client.models.nsfw_result import NsfwResult
+from cloudmersive_image_api_client.models.object_detection_result import ObjectDetectionResult
+from cloudmersive_image_api_client.models.person_with_age import PersonWithAge
 from cloudmersive_image_api_client.models.recognition_outcome import RecognitionOutcome

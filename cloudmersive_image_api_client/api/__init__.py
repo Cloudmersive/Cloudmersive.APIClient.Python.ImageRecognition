@@ -4,6 +4,7 @@ from __future__ import absolute_import
 
 # import apis into api package
 from cloudmersive_image_api_client.api.artistic_api import ArtisticApi
+from cloudmersive_image_api_client.api.edit_api import EditApi
 from cloudmersive_image_api_client.api.face_api import FaceApi
 from cloudmersive_image_api_client.api.nsfw_api import NsfwApi
 from cloudmersive_image_api_client.api.recognize_api import RecognizeApi

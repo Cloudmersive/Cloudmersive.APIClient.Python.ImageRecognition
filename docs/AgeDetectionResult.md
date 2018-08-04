@@ -1,12 +1,11 @@
-# FaceLocateResponse
+# AgeDetectionResult
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error_details** | **str** |  | [optional] 
 **successful** | **bool** | True if the operation was successful, false otherwise | [optional] 
-**faces** | [**list[Face]**](Face.md) | Array of faces found in the image | [optional] 
-**face_count** | **int** | Number of faces found in the image | [optional] 
+**people_with_age** | [**list[PersonWithAge]**](PersonWithAge.md) | People in the image annotated with age information | [optional] 
+**people_identified** | **int** | Number of people identified in the image with an age | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

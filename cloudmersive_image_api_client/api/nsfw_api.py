@@ -34,7 +34,7 @@ class NsfwApi(object):
         self.api_client = api_client
 
     def nsfw_classify(self, image_file, **kwargs):  # noqa: E501
-        """NSFW image classifier  # noqa: E501
+        """Not safe for work (NSFW) racy content classification  # noqa: E501
 
         Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -56,7 +56,7 @@ class NsfwApi(object):
             return data
 
     def nsfw_classify_with_http_info(self, image_file, **kwargs):  # noqa: E501
-        """NSFW image classifier  # noqa: E501
+        """Not safe for work (NSFW) racy content classification  # noqa: E501
 
         Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

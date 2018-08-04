@@ -1,8 +1,8 @@
 # coding: utf-8
 """
-    imageapi
+    convertapi
 
-    Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
+    Convert API lets you effortlessly convert file formats and types.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -23,9 +23,9 @@ import tempfile
 import six
 from six.moves.urllib.parse import quote
 
-from cloudmersive_image_api_client.configuration import Configuration
-import cloudmersive_image_api_client.models
-from cloudmersive_image_api_client import rest
+from cloudmersive_convert_api_client.configuration import Configuration
+import cloudmersive_convert_api_client.models
+from cloudmersive_convert_api_client import rest
 
 
 class ApiClient(object):
@@ -260,7 +260,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(cloudmersive_image_api_client.models, klass)
+                klass = getattr(cloudmersive_convert_api_client.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
