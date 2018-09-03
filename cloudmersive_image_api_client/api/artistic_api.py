@@ -43,9 +43,9 @@ class ArtisticApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param str style: The style of the painting to apply.  To start, try \"udnie\" a modernist\" painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\". (required)
+        :param str style: The style of the painting to apply.  To start, try \"udnie\" a painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\". (required)
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-        :return: object
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -66,9 +66,9 @@ class ArtisticApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param str style: The style of the painting to apply.  To start, try \"udnie\" a modernist\" painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\". (required)
+        :param str style: The style of the painting to apply.  To start, try \"udnie\" a painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\". (required)
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-        :return: object
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -132,7 +132,7 @@ class ArtisticApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='str',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),

@@ -16,6 +16,7 @@ from __future__ import absolute_import
 
 # import models into model package
 from cloudmersive_image_api_client.models.age_detection_result import AgeDetectionResult
+from cloudmersive_image_api_client.models.detected_license_plate import DetectedLicensePlate
 from cloudmersive_image_api_client.models.detected_object import DetectedObject
 from cloudmersive_image_api_client.models.draw_rectangle_instance import DrawRectangleInstance
 from cloudmersive_image_api_client.models.draw_rectangle_request import DrawRectangleRequest
@@ -28,3 +29,4 @@ from cloudmersive_image_api_client.models.nsfw_result import NsfwResult
 from cloudmersive_image_api_client.models.object_detection_result import ObjectDetectionResult
 from cloudmersive_image_api_client.models.person_with_age import PersonWithAge
 from cloudmersive_image_api_client.models.recognition_outcome import RecognitionOutcome
+from cloudmersive_image_api_client.models.vehicle_license_plate_detection_result import VehicleLicensePlateDetectionResult

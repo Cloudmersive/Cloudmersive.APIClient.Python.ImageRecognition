@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **resize_post**
-> object resize_post(max_width, max_height, image_file)
+> str resize_post(max_width, max_height, image_file)
 
 Resize an image with parameters
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**str**
 
 ### Authorization
 

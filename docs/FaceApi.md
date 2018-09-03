@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **face_crop_first**
-> object face_crop_first(image_file)
+> str face_crop_first(image_file)
 
 Crop image to face (square)
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**str**
 
 ### Authorization
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **face_crop_first_round**
-> object face_crop_first_round(image_file)
+> str face_crop_first_round(image_file)
 
 Crop image to face (round)
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**str**
 
 ### Authorization
 
