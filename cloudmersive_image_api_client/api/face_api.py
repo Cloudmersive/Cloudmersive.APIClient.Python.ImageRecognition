@@ -33,6 +33,113 @@ class FaceApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def face_compare(self, input_image, match_face, **kwargs):  # noqa: E501
+        """Compare and match faces  # noqa: E501
+
+        Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.face_compare(input_image, match_face, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param file input_image: Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported. (required)
+        :param file match_face: Image of a single face to compare and match against. (required)
+        :return: FaceCompareResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.face_compare_with_http_info(input_image, match_face, **kwargs)  # noqa: E501
+        else:
+            (data) = self.face_compare_with_http_info(input_image, match_face, **kwargs)  # noqa: E501
+            return data
+
+    def face_compare_with_http_info(self, input_image, match_face, **kwargs):  # noqa: E501
+        """Compare and match faces  # noqa: E501
+
+        Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.face_compare_with_http_info(input_image, match_face, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param file input_image: Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported. (required)
+        :param file match_face: Image of a single face to compare and match against. (required)
+        :return: FaceCompareResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['input_image', 'match_face']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method face_compare" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'input_image' is set
+        if ('input_image' not in params or
+                params['input_image'] is None):
+            raise ValueError("Missing the required parameter `input_image` when calling `face_compare`")  # noqa: E501
+        # verify the required parameter 'match_face' is set
+        if ('match_face' not in params or
+                params['match_face'] is None):
+            raise ValueError("Missing the required parameter `match_face` when calling `face_compare`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'input_image' in params:
+            local_var_files['inputImage'] = params['input_image']  # noqa: E501
+        if 'match_face' in params:
+            local_var_files['matchFace'] = params['match_face']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/face/compare-and-match', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FaceCompareResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async=params.get('async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def face_crop_first(self, image_file, **kwargs):  # noqa: E501
         """Crop image to face (square)  # noqa: E501
 
@@ -422,6 +529,105 @@ class FaceApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='FaceLocateResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async=params.get('async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def face_locate_with_landmarks(self, image_file, **kwargs):  # noqa: E501
+        """Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image  # noqa: E501
+
+        Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.face_locate_with_landmarks(image_file, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: FaceLocateWithLandmarksResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.face_locate_with_landmarks_with_http_info(image_file, **kwargs)  # noqa: E501
+        else:
+            (data) = self.face_locate_with_landmarks_with_http_info(image_file, **kwargs)  # noqa: E501
+            return data
+
+    def face_locate_with_landmarks_with_http_info(self, image_file, **kwargs):  # noqa: E501
+        """Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image  # noqa: E501
+
+        Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.face_locate_with_landmarks_with_http_info(image_file, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: FaceLocateWithLandmarksResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['image_file']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method face_locate_with_landmarks" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'image_file' is set
+        if ('image_file' not in params or
+                params['image_file'] is None):
+            raise ValueError("Missing the required parameter `image_file` when calling `face_locate_with_landmarks`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'image_file' in params:
+            local_var_files['imageFile'] = params['image_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/face/locate-with-landmarks', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='FaceLocateWithLandmarksResponse',  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
