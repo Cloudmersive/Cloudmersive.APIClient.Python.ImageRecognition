@@ -177,6 +177,9 @@ class ImageDescriptionResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(ImageDescriptionResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

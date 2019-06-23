@@ -38,11 +38,11 @@ class ResizeApi(object):
 
         Resize an image to a maximum width and maximum height, while preserving the image's original aspect ratio  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.resize_post(max_width, max_height, image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.resize_post(max_width, max_height, image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int max_width: Maximum width of the output image - final image will be as large as possible while less than or equial to this width (required)
         :param int max_height: Maximum height of the output image - final image will be as large as possible while less than or equial to this height (required)
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -51,7 +51,7 @@ class ResizeApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.resize_post_with_http_info(max_width, max_height, image_file, **kwargs)  # noqa: E501
         else:
             (data) = self.resize_post_with_http_info(max_width, max_height, image_file, **kwargs)  # noqa: E501
@@ -62,11 +62,11 @@ class ResizeApi(object):
 
         Resize an image to a maximum width and maximum height, while preserving the image's original aspect ratio  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.resize_post_with_http_info(max_width, max_height, image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.resize_post_with_http_info(max_width, max_height, image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param int max_width: Maximum width of the output image - final image will be as large as possible while less than or equial to this width (required)
         :param int max_height: Maximum height of the output image - final image will be as large as possible while less than or equial to this height (required)
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -76,7 +76,7 @@ class ResizeApi(object):
         """
 
         all_params = ['max_width', 'max_height', 'image_file']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -142,7 +142,7 @@ class ResizeApi(object):
             files=local_var_files,
             response_type='str',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

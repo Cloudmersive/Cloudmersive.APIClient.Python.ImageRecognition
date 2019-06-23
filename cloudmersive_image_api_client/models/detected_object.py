@@ -231,6 +231,9 @@ class DetectedObject(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DetectedObject, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

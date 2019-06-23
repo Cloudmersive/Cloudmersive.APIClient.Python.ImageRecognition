@@ -38,11 +38,11 @@ class ArtisticApi(object):
 
         Uses machine learning to automatically transform an image into an artistic painting.  Due to depth of AI processing, depending on image size this operation can take up to 20 seconds.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.artistic_painting(style, image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.artistic_painting(style, image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str style: The style of the painting to apply.  To start, try \"udnie\" a painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\". (required)
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: str
@@ -50,7 +50,7 @@ class ArtisticApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.artistic_painting_with_http_info(style, image_file, **kwargs)  # noqa: E501
         else:
             (data) = self.artistic_painting_with_http_info(style, image_file, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class ArtisticApi(object):
 
         Uses machine learning to automatically transform an image into an artistic painting.  Due to depth of AI processing, depending on image size this operation can take up to 20 seconds.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.artistic_painting_with_http_info(style, image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.artistic_painting_with_http_info(style, image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str style: The style of the painting to apply.  To start, try \"udnie\" a painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\". (required)
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: str
@@ -74,7 +74,7 @@ class ArtisticApi(object):
         """
 
         all_params = ['style', 'image_file']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class ArtisticApi(object):
             files=local_var_files,
             response_type='str',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

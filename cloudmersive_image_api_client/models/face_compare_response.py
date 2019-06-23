@@ -175,6 +175,9 @@ class FaceCompareResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FaceCompareResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

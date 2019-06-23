@@ -147,6 +147,9 @@ class NsfwResult(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(NsfwResult, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

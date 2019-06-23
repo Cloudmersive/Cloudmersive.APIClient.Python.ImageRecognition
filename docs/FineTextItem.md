@@ -11,6 +11,9 @@ Name | Type | Description | Notes
 **bottom_left_y** | **int** | Y coordinate of the bottom/left text location; 0 represents the top edge of the input image | [optional] 
 **bottom_right_x** | **int** | X coordinate of the bottom/right text location; 0 represents the left edge of the input image | [optional] 
 **bottom_right_y** | **int** | Y coordinate of the bottom/right text location; 0 represents the top edge of the input image | [optional] 
+**width** | **int** | Width in pixels of the text | [optional] 
+**height** | **int** | Height in pixels of the text | [optional] 
+**angle** | **float** | Rotation Angle in radians of the text | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

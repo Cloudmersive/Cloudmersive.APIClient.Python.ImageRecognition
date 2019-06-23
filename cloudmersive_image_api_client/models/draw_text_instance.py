@@ -287,6 +287,9 @@ class DrawTextInstance(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DrawTextInstance, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

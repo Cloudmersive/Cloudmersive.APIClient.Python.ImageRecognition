@@ -38,7 +38,10 @@ class FineTextItem(object):
         'bottom_left_x': 'int',
         'bottom_left_y': 'int',
         'bottom_right_x': 'int',
-        'bottom_right_y': 'int'
+        'bottom_right_y': 'int',
+        'width': 'int',
+        'height': 'int',
+        'angle': 'float'
     }
 
     attribute_map = {
@@ -49,10 +52,13 @@ class FineTextItem(object):
         'bottom_left_x': 'BottomLeftX',
         'bottom_left_y': 'BottomLeftY',
         'bottom_right_x': 'BottomRightX',
-        'bottom_right_y': 'BottomRightY'
+        'bottom_right_y': 'BottomRightY',
+        'width': 'Width',
+        'height': 'Height',
+        'angle': 'Angle'
     }
 
-    def __init__(self, top_left_x=None, top_left_y=None, top_right_x=None, top_right_y=None, bottom_left_x=None, bottom_left_y=None, bottom_right_x=None, bottom_right_y=None):  # noqa: E501
+    def __init__(self, top_left_x=None, top_left_y=None, top_right_x=None, top_right_y=None, bottom_left_x=None, bottom_left_y=None, bottom_right_x=None, bottom_right_y=None, width=None, height=None, angle=None):  # noqa: E501
         """FineTextItem - a model defined in Swagger"""  # noqa: E501
 
         self._top_left_x = None
@@ -63,6 +69,9 @@ class FineTextItem(object):
         self._bottom_left_y = None
         self._bottom_right_x = None
         self._bottom_right_y = None
+        self._width = None
+        self._height = None
+        self._angle = None
         self.discriminator = None
 
         if top_left_x is not None:
@@ -81,6 +90,12 @@ class FineTextItem(object):
             self.bottom_right_x = bottom_right_x
         if bottom_right_y is not None:
             self.bottom_right_y = bottom_right_y
+        if width is not None:
+            self.width = width
+        if height is not None:
+            self.height = height
+        if angle is not None:
+            self.angle = angle
 
     @property
     def top_left_x(self):
@@ -266,6 +281,75 @@ class FineTextItem(object):
 
         self._bottom_right_y = bottom_right_y
 
+    @property
+    def width(self):
+        """Gets the width of this FineTextItem.  # noqa: E501
+
+        Width in pixels of the text  # noqa: E501
+
+        :return: The width of this FineTextItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._width
+
+    @width.setter
+    def width(self, width):
+        """Sets the width of this FineTextItem.
+
+        Width in pixels of the text  # noqa: E501
+
+        :param width: The width of this FineTextItem.  # noqa: E501
+        :type: int
+        """
+
+        self._width = width
+
+    @property
+    def height(self):
+        """Gets the height of this FineTextItem.  # noqa: E501
+
+        Height in pixels of the text  # noqa: E501
+
+        :return: The height of this FineTextItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._height
+
+    @height.setter
+    def height(self, height):
+        """Sets the height of this FineTextItem.
+
+        Height in pixels of the text  # noqa: E501
+
+        :param height: The height of this FineTextItem.  # noqa: E501
+        :type: int
+        """
+
+        self._height = height
+
+    @property
+    def angle(self):
+        """Gets the angle of this FineTextItem.  # noqa: E501
+
+        Rotation Angle in radians of the text  # noqa: E501
+
+        :return: The angle of this FineTextItem.  # noqa: E501
+        :rtype: float
+        """
+        return self._angle
+
+    @angle.setter
+    def angle(self, angle):
+        """Sets the angle of this FineTextItem.
+
+        Rotation Angle in radians of the text  # noqa: E501
+
+        :param angle: The angle of this FineTextItem.  # noqa: E501
+        :type: float
+        """
+
+        self._angle = angle
+
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
@@ -287,6 +371,9 @@ class FineTextItem(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FineTextItem, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

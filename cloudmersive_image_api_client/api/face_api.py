@@ -38,11 +38,11 @@ class FaceApi(object):
 
         Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_compare(input_image, match_face, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_compare(input_image, match_face, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file input_image: Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported. (required)
         :param file match_face: Image of a single face to compare and match against. (required)
         :return: FaceCompareResponse
@@ -50,7 +50,7 @@ class FaceApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.face_compare_with_http_info(input_image, match_face, **kwargs)  # noqa: E501
         else:
             (data) = self.face_compare_with_http_info(input_image, match_face, **kwargs)  # noqa: E501
@@ -61,11 +61,11 @@ class FaceApi(object):
 
         Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_compare_with_http_info(input_image, match_face, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_compare_with_http_info(input_image, match_face, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file input_image: Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported. (required)
         :param file match_face: Image of a single face to compare and match against. (required)
         :return: FaceCompareResponse
@@ -74,7 +74,7 @@ class FaceApi(object):
         """
 
         all_params = ['input_image', 'match_face']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -134,7 +134,7 @@ class FaceApi(object):
             files=local_var_files,
             response_type='FaceCompareResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -145,18 +145,18 @@ class FaceApi(object):
 
         Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_crop_first(image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_crop_first(image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.face_crop_first_with_http_info(image_file, **kwargs)  # noqa: E501
         else:
             (data) = self.face_crop_first_with_http_info(image_file, **kwargs)  # noqa: E501
@@ -167,11 +167,11 @@ class FaceApi(object):
 
         Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_crop_first_with_http_info(image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_crop_first_with_http_info(image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: str
                  If the method is called asynchronously,
@@ -179,7 +179,7 @@ class FaceApi(object):
         """
 
         all_params = ['image_file']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -233,7 +233,7 @@ class FaceApi(object):
             files=local_var_files,
             response_type='str',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -244,18 +244,18 @@ class FaceApi(object):
 
         Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_crop_first_round(image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_crop_first_round(image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.face_crop_first_round_with_http_info(image_file, **kwargs)  # noqa: E501
         else:
             (data) = self.face_crop_first_round_with_http_info(image_file, **kwargs)  # noqa: E501
@@ -266,11 +266,11 @@ class FaceApi(object):
 
         Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_crop_first_round_with_http_info(image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_crop_first_round_with_http_info(image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: str
                  If the method is called asynchronously,
@@ -278,7 +278,7 @@ class FaceApi(object):
         """
 
         all_params = ['image_file']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -332,7 +332,7 @@ class FaceApi(object):
             files=local_var_files,
             response_type='str',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -343,18 +343,18 @@ class FaceApi(object):
 
         Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_detect_age(image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_detect_age(image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: AgeDetectionResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.face_detect_age_with_http_info(image_file, **kwargs)  # noqa: E501
         else:
             (data) = self.face_detect_age_with_http_info(image_file, **kwargs)  # noqa: E501
@@ -365,11 +365,11 @@ class FaceApi(object):
 
         Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_detect_age_with_http_info(image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_detect_age_with_http_info(image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: AgeDetectionResult
                  If the method is called asynchronously,
@@ -377,7 +377,7 @@ class FaceApi(object):
         """
 
         all_params = ['image_file']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -431,7 +431,7 @@ class FaceApi(object):
             files=local_var_files,
             response_type='AgeDetectionResult',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -442,18 +442,18 @@ class FaceApi(object):
 
         Locate the positions of all faces in an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_locate(image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_locate(image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: FaceLocateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.face_locate_with_http_info(image_file, **kwargs)  # noqa: E501
         else:
             (data) = self.face_locate_with_http_info(image_file, **kwargs)  # noqa: E501
@@ -464,11 +464,11 @@ class FaceApi(object):
 
         Locate the positions of all faces in an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_locate_with_http_info(image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_locate_with_http_info(image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: FaceLocateResponse
                  If the method is called asynchronously,
@@ -476,7 +476,7 @@ class FaceApi(object):
         """
 
         all_params = ['image_file']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -530,7 +530,7 @@ class FaceApi(object):
             files=local_var_files,
             response_type='FaceLocateResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -541,18 +541,18 @@ class FaceApi(object):
 
         Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_locate_with_landmarks(image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_locate_with_landmarks(image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: FaceLocateWithLandmarksResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.face_locate_with_landmarks_with_http_info(image_file, **kwargs)  # noqa: E501
         else:
             (data) = self.face_locate_with_landmarks_with_http_info(image_file, **kwargs)  # noqa: E501
@@ -563,11 +563,11 @@ class FaceApi(object):
 
         Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.face_locate_with_landmarks_with_http_info(image_file, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.face_locate_with_landmarks_with_http_info(image_file, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: FaceLocateWithLandmarksResponse
                  If the method is called asynchronously,
@@ -575,7 +575,7 @@ class FaceApi(object):
         """
 
         all_params = ['image_file']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -629,7 +629,7 @@ class FaceApi(object):
             files=local_var_files,
             response_type='FaceLocateWithLandmarksResponse',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

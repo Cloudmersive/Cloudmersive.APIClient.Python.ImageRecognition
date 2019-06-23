@@ -175,6 +175,9 @@ class FaceLocateResponse(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(FaceLocateResponse, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 

@@ -38,11 +38,11 @@ class EditApi(object):
 
         Composites two input images together; a layered image onto a base image.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.edit_composite_basic(location, base_image, layered_image, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_composite_basic(location, base_image, layered_image, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str location: Location to composite the layered images; possible values are: \"center\", \"top-left\", \"top-center\", \"top-right\", \"center-left\", \"center-right\", \"bottom-left\", \"bottom-center\", \"bottom-right\" (required)
         :param file base_image: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :param file layered_image: Image to layer on top of the base image. (required)
@@ -51,7 +51,7 @@ class EditApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.edit_composite_basic_with_http_info(location, base_image, layered_image, **kwargs)  # noqa: E501
         else:
             (data) = self.edit_composite_basic_with_http_info(location, base_image, layered_image, **kwargs)  # noqa: E501
@@ -62,11 +62,11 @@ class EditApi(object):
 
         Composites two input images together; a layered image onto a base image.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.edit_composite_basic_with_http_info(location, base_image, layered_image, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_composite_basic_with_http_info(location, base_image, layered_image, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param str location: Location to composite the layered images; possible values are: \"center\", \"top-left\", \"top-center\", \"top-right\", \"center-left\", \"center-right\", \"bottom-left\", \"bottom-center\", \"bottom-right\" (required)
         :param file base_image: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :param file layered_image: Image to layer on top of the base image. (required)
@@ -76,7 +76,7 @@ class EditApi(object):
         """
 
         all_params = ['location', 'base_image', 'layered_image']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -142,7 +142,7 @@ class EditApi(object):
             files=local_var_files,
             response_type='object',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -153,18 +153,18 @@ class EditApi(object):
 
         Draw one or more rectangles, with customized visuals, onto an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.edit_draw_rectangle(request, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_draw_rectangle(request, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DrawRectangleRequest request: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.edit_draw_rectangle_with_http_info(request, **kwargs)  # noqa: E501
         else:
             (data) = self.edit_draw_rectangle_with_http_info(request, **kwargs)  # noqa: E501
@@ -175,11 +175,11 @@ class EditApi(object):
 
         Draw one or more rectangles, with customized visuals, onto an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.edit_draw_rectangle_with_http_info(request, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_draw_rectangle_with_http_info(request, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DrawRectangleRequest request: (required)
         :return: object
                  If the method is called asynchronously,
@@ -187,7 +187,7 @@ class EditApi(object):
         """
 
         all_params = ['request']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -241,7 +241,7 @@ class EditApi(object):
             files=local_var_files,
             response_type='object',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
@@ -252,18 +252,18 @@ class EditApi(object):
 
         Draw one or more pieces of text, with customized visuals, onto an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.edit_draw_text(request, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_draw_text(request, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DrawTextRequest request: (required)
         :return: object
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
+        if kwargs.get('async_req'):
             return self.edit_draw_text_with_http_info(request, **kwargs)  # noqa: E501
         else:
             (data) = self.edit_draw_text_with_http_info(request, **kwargs)  # noqa: E501
@@ -274,11 +274,11 @@ class EditApi(object):
 
         Draw one or more pieces of text, with customized visuals, onto an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.edit_draw_text_with_http_info(request, async=True)
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_draw_text_with_http_info(request, async_req=True)
         >>> result = thread.get()
 
-        :param async bool
+        :param async_req bool
         :param DrawTextRequest request: (required)
         :return: object
                  If the method is called asynchronously,
@@ -286,7 +286,7 @@ class EditApi(object):
         """
 
         all_params = ['request']  # noqa: E501
-        all_params.append('async')
+        all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
         all_params.append('_request_timeout')
@@ -340,7 +340,7 @@ class EditApi(object):
             files=local_var_files,
             response_type='object',  # noqa: E501
             auth_settings=auth_settings,
-            async=params.get('async'),
+            async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),

@@ -79,8 +79,8 @@ class DrawTextRequest(object):
         :param base_image_bytes: The base_image_bytes of this DrawTextRequest.  # noqa: E501
         :type: str
         """
-        if base_image_bytes is not None and not re.search('^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', base_image_bytes):  # noqa: E501
-            raise ValueError("Invalid value for `base_image_bytes`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+        if base_image_bytes is not None and not re.search(r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', base_image_bytes):  # noqa: E501
+            raise ValueError(r"Invalid value for `base_image_bytes`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
 
         self._base_image_bytes = base_image_bytes
 
@@ -151,6 +151,9 @@ class DrawTextRequest(object):
                 ))
             else:
                 result[attr] = value
+        if issubclass(DrawTextRequest, dict):
+            for key, value in self.items():
+                result[key] = value
 
         return result
 
