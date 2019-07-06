@@ -46,7 +46,7 @@ class EditApi(object):
         :param str location: Location to composite the layered images; possible values are: \"center\", \"top-left\", \"top-center\", \"top-right\", \"center-left\", \"center-right\", \"bottom-left\", \"bottom-center\", \"bottom-right\" (required)
         :param file base_image: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :param file layered_image: Image to layer on top of the base image. (required)
-        :return: object
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -70,7 +70,7 @@ class EditApi(object):
         :param str location: Location to composite the layered images; possible values are: \"center\", \"top-left\", \"top-center\", \"top-right\", \"center-left\", \"center-right\", \"bottom-left\", \"bottom-center\", \"bottom-right\" (required)
         :param file base_image: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :param file layered_image: Image to layer on top of the base image. (required)
-        :return: object
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -140,7 +140,7 @@ class EditApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='str',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -159,7 +159,7 @@ class EditApi(object):
 
         :param async_req bool
         :param DrawRectangleRequest request: (required)
-        :return: object
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -181,7 +181,7 @@ class EditApi(object):
 
         :param async_req bool
         :param DrawRectangleRequest request: (required)
-        :return: object
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -239,7 +239,7 @@ class EditApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='str',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -258,7 +258,7 @@ class EditApi(object):
 
         :param async_req bool
         :param DrawTextRequest request: (required)
-        :return: object
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -280,7 +280,7 @@ class EditApi(object):
 
         :param async_req bool
         :param DrawTextRequest request: (required)
-        :return: object
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -338,7 +338,7 @@ class EditApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='str',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

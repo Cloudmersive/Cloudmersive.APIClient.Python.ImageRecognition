@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **edit_composite_basic**
-> object edit_composite_basic(location, base_image, layered_image)
+> str edit_composite_basic(location, base_image, layered_image)
 
 Composite two images together
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**str**
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_draw_rectangle**
-> object edit_draw_rectangle(request)
+> str edit_draw_rectangle(request)
 
 Draw rectangle onto an image
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**str**
 
 ### Authorization
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_draw_text**
-> object edit_draw_text(request)
+> str edit_draw_text(request)
 
 Draw text onto an image
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**str**
 
 ### Authorization
 
