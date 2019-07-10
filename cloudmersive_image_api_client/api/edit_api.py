@@ -148,6 +148,113 @@ class EditApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def edit_contrast_adaptive(self, gamma, image_file, **kwargs):  # noqa: E501
+        """Adaptively adjust the contrast of the image to be more appealing and easy to see  # noqa: E501
+
+        Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_contrast_adaptive(gamma, image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float gamma: Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. (required)
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.edit_contrast_adaptive_with_http_info(gamma, image_file, **kwargs)  # noqa: E501
+        else:
+            (data) = self.edit_contrast_adaptive_with_http_info(gamma, image_file, **kwargs)  # noqa: E501
+            return data
+
+    def edit_contrast_adaptive_with_http_info(self, gamma, image_file, **kwargs):  # noqa: E501
+        """Adaptively adjust the contrast of the image to be more appealing and easy to see  # noqa: E501
+
+        Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_contrast_adaptive_with_http_info(gamma, image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float gamma: Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. (required)
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['gamma', 'image_file']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method edit_contrast_adaptive" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'gamma' is set
+        if ('gamma' not in params or
+                params['gamma'] is None):
+            raise ValueError("Missing the required parameter `gamma` when calling `edit_contrast_adaptive`")  # noqa: E501
+        # verify the required parameter 'image_file' is set
+        if ('image_file' not in params or
+                params['image_file'] is None):
+            raise ValueError("Missing the required parameter `image_file` when calling `edit_contrast_adaptive`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'gamma' in params:
+            path_params['gamma'] = params['gamma']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'image_file' in params:
+            local_var_files['imageFile'] = params['image_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['image/png'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/edit/contrast/{gamma}/adaptive', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def edit_draw_rectangle(self, request, **kwargs):  # noqa: E501
         """Draw rectangle onto an image  # noqa: E501
 
