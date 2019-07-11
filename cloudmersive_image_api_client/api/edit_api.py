@@ -354,6 +354,105 @@ class EditApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def edit_draw_polygon(self, request, **kwargs):  # noqa: E501
+        """Draw polygon onto an image  # noqa: E501
+
+        Draw one or more polygons, with customized visuals, onto an image  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_draw_polygon(request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DrawPolygonRequest request: (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.edit_draw_polygon_with_http_info(request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.edit_draw_polygon_with_http_info(request, **kwargs)  # noqa: E501
+            return data
+
+    def edit_draw_polygon_with_http_info(self, request, **kwargs):  # noqa: E501
+        """Draw polygon onto an image  # noqa: E501
+
+        Draw one or more polygons, with customized visuals, onto an image  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_draw_polygon_with_http_info(request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DrawPolygonRequest request: (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method edit_draw_polygon" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'request' is set
+        if ('request' not in params or
+                params['request'] is None):
+            raise ValueError("Missing the required parameter `request` when calling `edit_draw_polygon`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request' in params:
+            body_params = params['request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['image/png'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/edit/draw/polygon', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def edit_draw_rectangle(self, request, **kwargs):  # noqa: E501
         """Draw rectangle onto an image  # noqa: E501
 
@@ -545,6 +644,101 @@ class EditApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def edit_rotate(self, degrees, **kwargs):  # noqa: E501
+        """Rotate an image any number of degrees  # noqa: E501
+
+        Rotates an image by an arbitrary number of degrees  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_rotate(degrees, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float degrees: Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.edit_rotate_with_http_info(degrees, **kwargs)  # noqa: E501
+        else:
+            (data) = self.edit_rotate_with_http_info(degrees, **kwargs)  # noqa: E501
+            return data
+
+    def edit_rotate_with_http_info(self, degrees, **kwargs):  # noqa: E501
+        """Rotate an image any number of degrees  # noqa: E501
+
+        Rotates an image by an arbitrary number of degrees  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_rotate_with_http_info(degrees, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param float degrees: Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+        :return: object
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['degrees']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method edit_rotate" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'degrees' is set
+        if ('degrees' not in params or
+                params['degrees'] is None):
+            raise ValueError("Missing the required parameter `degrees` when calling `edit_rotate`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'degrees' in params:
+            path_params['degrees'] = params['degrees']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/octet-stream'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/edit/rotate/{degrees}/angle', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='object',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
