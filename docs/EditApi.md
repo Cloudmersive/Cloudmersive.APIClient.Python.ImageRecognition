@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**edit_auto_orient**](EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**edit_composite_basic**](EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**edit_contrast_adaptive**](EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
-[**edit_draw_polygon**](EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw polygon onto an image
-[**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
+[**edit_draw_polygon**](EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
+[**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**edit_draw_text**](EditApi.md#edit_draw_text) | **POST** /image/edit/draw/text | Draw text onto an image
 [**edit_rotate**](EditApi.md#edit_rotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
@@ -182,9 +182,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_draw_polygon**
-> object edit_draw_polygon(request)
+> str edit_draw_polygon(request)
 
-Draw polygon onto an image
+Draw a polygon onto an image
 
 Draw one or more polygons, with customized visuals, onto an image
 
@@ -207,7 +207,7 @@ api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_clie
 request = cloudmersive_image_api_client.DrawPolygonRequest() # DrawPolygonRequest | 
 
 try:
-    # Draw polygon onto an image
+    # Draw a polygon onto an image
     api_response = api_instance.edit_draw_polygon(request)
     pprint(api_response)
 except ApiException as e:
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**str**
 
 ### Authorization
 
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 # **edit_draw_rectangle**
 > str edit_draw_rectangle(request)
 
-Draw rectangle onto an image
+Draw a rectangle onto an image
 
 Draw one or more rectangles, with customized visuals, onto an image
 
@@ -261,7 +261,7 @@ api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_clie
 request = cloudmersive_image_api_client.DrawRectangleRequest() # DrawRectangleRequest | 
 
 try:
-    # Draw rectangle onto an image
+    # Draw a rectangle onto an image
     api_response = api_instance.edit_draw_rectangle(request)
     pprint(api_response)
 except ApiException as e:
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_rotate**
-> object edit_rotate(degrees)
+> str edit_rotate(degrees, image_file)
 
 Rotate an image any number of degrees
 
@@ -367,10 +367,11 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_client.ApiClient(configuration))
 degrees = 1.2 # float | Degrees to rotate the image; values range from 0.0 to 360.0.
+image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
     # Rotate an image any number of degrees
-    api_response = api_instance.edit_rotate(degrees)
+    api_response = api_instance.edit_rotate(degrees, image_file)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EditApi->edit_rotate: %s\n" % e)
@@ -381,10 +382,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **degrees** | **float**| Degrees to rotate the image; values range from 0.0 to 360.0. | 
+ **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-**object**
+**str**
 
 ### Authorization
 
@@ -392,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

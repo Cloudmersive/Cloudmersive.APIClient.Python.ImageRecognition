@@ -355,7 +355,7 @@ class EditApi(object):
             collection_formats=collection_formats)
 
     def edit_draw_polygon(self, request, **kwargs):  # noqa: E501
-        """Draw polygon onto an image  # noqa: E501
+        """Draw a polygon onto an image  # noqa: E501
 
         Draw one or more polygons, with customized visuals, onto an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -365,7 +365,7 @@ class EditApi(object):
 
         :param async_req bool
         :param DrawPolygonRequest request: (required)
-        :return: object
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -377,7 +377,7 @@ class EditApi(object):
             return data
 
     def edit_draw_polygon_with_http_info(self, request, **kwargs):  # noqa: E501
-        """Draw polygon onto an image  # noqa: E501
+        """Draw a polygon onto an image  # noqa: E501
 
         Draw one or more polygons, with customized visuals, onto an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -387,7 +387,7 @@ class EditApi(object):
 
         :param async_req bool
         :param DrawPolygonRequest request: (required)
-        :return: object
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -445,7 +445,7 @@ class EditApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='str',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -454,7 +454,7 @@ class EditApi(object):
             collection_formats=collection_formats)
 
     def edit_draw_rectangle(self, request, **kwargs):  # noqa: E501
-        """Draw rectangle onto an image  # noqa: E501
+        """Draw a rectangle onto an image  # noqa: E501
 
         Draw one or more rectangles, with customized visuals, onto an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -476,7 +476,7 @@ class EditApi(object):
             return data
 
     def edit_draw_rectangle_with_http_info(self, request, **kwargs):  # noqa: E501
-        """Draw rectangle onto an image  # noqa: E501
+        """Draw a rectangle onto an image  # noqa: E501
 
         Draw one or more rectangles, with customized visuals, onto an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -651,45 +651,47 @@ class EditApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def edit_rotate(self, degrees, **kwargs):  # noqa: E501
+    def edit_rotate(self, degrees, image_file, **kwargs):  # noqa: E501
         """Rotate an image any number of degrees  # noqa: E501
 
         Rotates an image by an arbitrary number of degrees  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.edit_rotate(degrees, async_req=True)
+        >>> thread = api.edit_rotate(degrees, image_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param float degrees: Degrees to rotate the image; values range from 0.0 to 360.0. (required)
-        :return: object
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.edit_rotate_with_http_info(degrees, **kwargs)  # noqa: E501
+            return self.edit_rotate_with_http_info(degrees, image_file, **kwargs)  # noqa: E501
         else:
-            (data) = self.edit_rotate_with_http_info(degrees, **kwargs)  # noqa: E501
+            (data) = self.edit_rotate_with_http_info(degrees, image_file, **kwargs)  # noqa: E501
             return data
 
-    def edit_rotate_with_http_info(self, degrees, **kwargs):  # noqa: E501
+    def edit_rotate_with_http_info(self, degrees, image_file, **kwargs):  # noqa: E501
         """Rotate an image any number of degrees  # noqa: E501
 
         Rotates an image by an arbitrary number of degrees  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.edit_rotate_with_http_info(degrees, async_req=True)
+        >>> thread = api.edit_rotate_with_http_info(degrees, image_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param float degrees: Degrees to rotate the image; values range from 0.0 to 360.0. (required)
-        :return: object
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['degrees']  # noqa: E501
+        all_params = ['degrees', 'image_file']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -708,6 +710,10 @@ class EditApi(object):
         if ('degrees' not in params or
                 params['degrees'] is None):
             raise ValueError("Missing the required parameter `degrees` when calling `edit_rotate`")  # noqa: E501
+        # verify the required parameter 'image_file' is set
+        if ('image_file' not in params or
+                params['image_file'] is None):
+            raise ValueError("Missing the required parameter `image_file` when calling `edit_rotate`")  # noqa: E501
 
         collection_formats = {}
 
@@ -721,11 +727,17 @@ class EditApi(object):
 
         form_params = []
         local_var_files = {}
+        if 'image_file' in params:
+            local_var_files['imageFile'] = params['image_file']  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/octet-stream'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['Apikey']  # noqa: E501
@@ -738,7 +750,7 @@ class EditApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='str',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
