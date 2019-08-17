@@ -35,21 +35,24 @@ class PersonWithAge(object):
     swagger_types = {
         'face_location': 'Face',
         'age_classification_confidence': 'float',
-        'age_class': 'str'
+        'age_class': 'str',
+        'age': 'float'
     }
 
     attribute_map = {
         'face_location': 'FaceLocation',
         'age_classification_confidence': 'AgeClassificationConfidence',
-        'age_class': 'AgeClass'
+        'age_class': 'AgeClass',
+        'age': 'Age'
     }
 
-    def __init__(self, face_location=None, age_classification_confidence=None, age_class=None):  # noqa: E501
+    def __init__(self, face_location=None, age_classification_confidence=None, age_class=None, age=None):  # noqa: E501
         """PersonWithAge - a model defined in Swagger"""  # noqa: E501
 
         self._face_location = None
         self._age_classification_confidence = None
         self._age_class = None
+        self._age = None
         self.discriminator = None
 
         if face_location is not None:
@@ -58,6 +61,8 @@ class PersonWithAge(object):
             self.age_classification_confidence = age_classification_confidence
         if age_class is not None:
             self.age_class = age_class
+        if age is not None:
+            self.age = age
 
     @property
     def face_location(self):
@@ -127,6 +132,27 @@ class PersonWithAge(object):
         """
 
         self._age_class = age_class
+
+    @property
+    def age(self):
+        """Gets the age of this PersonWithAge.  # noqa: E501
+
+
+        :return: The age of this PersonWithAge.  # noqa: E501
+        :rtype: float
+        """
+        return self._age
+
+    @age.setter
+    def age(self, age):
+        """Sets the age of this PersonWithAge.
+
+
+        :param age: The age of this PersonWithAge.  # noqa: E501
+        :type: float
+        """
+
+        self._age = age
 
     def to_dict(self):
         """Returns the model properties as a dict"""
