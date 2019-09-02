@@ -532,43 +532,45 @@ class RecognizeApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def recognize_detect_text_large(self, **kwargs):  # noqa: E501
+    def recognize_detect_text_large(self, image_file, **kwargs):  # noqa: E501
         """Detect large text in a photo  # noqa: E501
 
         Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.recognize_detect_text_large(async_req=True)
+        >>> thread = api.recognize_detect_text_large(image_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: TextDetectionResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.recognize_detect_text_large_with_http_info(**kwargs)  # noqa: E501
+            return self.recognize_detect_text_large_with_http_info(image_file, **kwargs)  # noqa: E501
         else:
-            (data) = self.recognize_detect_text_large_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.recognize_detect_text_large_with_http_info(image_file, **kwargs)  # noqa: E501
             return data
 
-    def recognize_detect_text_large_with_http_info(self, **kwargs):  # noqa: E501
+    def recognize_detect_text_large_with_http_info(self, image_file, **kwargs):  # noqa: E501
         """Detect large text in a photo  # noqa: E501
 
         Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.recognize_detect_text_large_with_http_info(async_req=True)
+        >>> thread = api.recognize_detect_text_large_with_http_info(image_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: TextDetectionResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []  # noqa: E501
+        all_params = ['image_file']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -583,6 +585,10 @@ class RecognizeApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'image_file' is set
+        if ('image_file' not in params or
+                params['image_file'] is None):
+            raise ValueError("Missing the required parameter `image_file` when calling `recognize_detect_text_large`")  # noqa: E501
 
         collection_formats = {}
 
@@ -594,11 +600,17 @@ class RecognizeApi(object):
 
         form_params = []
         local_var_files = {}
+        if 'image_file' in params:
+            local_var_files['imageFile'] = params['image_file']  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['Apikey']  # noqa: E501
