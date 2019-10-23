@@ -33,6 +33,10 @@ class FaceWithLandmarks(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'left_x': 'int',
+        'top_y': 'int',
+        'right_x': 'int',
+        'bottom_y': 'int',
         'left_eyebrow': 'list[FacePoint]',
         'right_eyebrow': 'list[FacePoint]',
         'left_eye': 'list[FacePoint]',
@@ -41,14 +45,14 @@ class FaceWithLandmarks(object):
         'nose_bridge': 'list[FacePoint]',
         'nose_bottom': 'list[FacePoint]',
         'lips_inner_outline': 'list[FacePoint]',
-        'lips_outer_outline': 'list[FacePoint]',
-        'left_x': 'int',
-        'top_y': 'int',
-        'right_x': 'int',
-        'bottom_y': 'int'
+        'lips_outer_outline': 'list[FacePoint]'
     }
 
     attribute_map = {
+        'left_x': 'LeftX',
+        'top_y': 'TopY',
+        'right_x': 'RightX',
+        'bottom_y': 'BottomY',
         'left_eyebrow': 'LeftEyebrow',
         'right_eyebrow': 'RightEyebrow',
         'left_eye': 'LeftEye',
@@ -57,16 +61,16 @@ class FaceWithLandmarks(object):
         'nose_bridge': 'NoseBridge',
         'nose_bottom': 'NoseBottom',
         'lips_inner_outline': 'LipsInnerOutline',
-        'lips_outer_outline': 'LipsOuterOutline',
-        'left_x': 'LeftX',
-        'top_y': 'TopY',
-        'right_x': 'RightX',
-        'bottom_y': 'BottomY'
+        'lips_outer_outline': 'LipsOuterOutline'
     }
 
-    def __init__(self, left_eyebrow=None, right_eyebrow=None, left_eye=None, right_eye=None, bottom_and_sides_of_face=None, nose_bridge=None, nose_bottom=None, lips_inner_outline=None, lips_outer_outline=None, left_x=None, top_y=None, right_x=None, bottom_y=None):  # noqa: E501
+    def __init__(self, left_x=None, top_y=None, right_x=None, bottom_y=None, left_eyebrow=None, right_eyebrow=None, left_eye=None, right_eye=None, bottom_and_sides_of_face=None, nose_bridge=None, nose_bottom=None, lips_inner_outline=None, lips_outer_outline=None):  # noqa: E501
         """FaceWithLandmarks - a model defined in Swagger"""  # noqa: E501
 
+        self._left_x = None
+        self._top_y = None
+        self._right_x = None
+        self._bottom_y = None
         self._left_eyebrow = None
         self._right_eyebrow = None
         self._left_eye = None
@@ -76,12 +80,16 @@ class FaceWithLandmarks(object):
         self._nose_bottom = None
         self._lips_inner_outline = None
         self._lips_outer_outline = None
-        self._left_x = None
-        self._top_y = None
-        self._right_x = None
-        self._bottom_y = None
         self.discriminator = None
 
+        if left_x is not None:
+            self.left_x = left_x
+        if top_y is not None:
+            self.top_y = top_y
+        if right_x is not None:
+            self.right_x = right_x
+        if bottom_y is not None:
+            self.bottom_y = bottom_y
         if left_eyebrow is not None:
             self.left_eyebrow = left_eyebrow
         if right_eyebrow is not None:
@@ -100,203 +108,6 @@ class FaceWithLandmarks(object):
             self.lips_inner_outline = lips_inner_outline
         if lips_outer_outline is not None:
             self.lips_outer_outline = lips_outer_outline
-        if left_x is not None:
-            self.left_x = left_x
-        if top_y is not None:
-            self.top_y = top_y
-        if right_x is not None:
-            self.right_x = right_x
-        if bottom_y is not None:
-            self.bottom_y = bottom_y
-
-    @property
-    def left_eyebrow(self):
-        """Gets the left_eyebrow of this FaceWithLandmarks.  # noqa: E501
-
-
-        :return: The left_eyebrow of this FaceWithLandmarks.  # noqa: E501
-        :rtype: list[FacePoint]
-        """
-        return self._left_eyebrow
-
-    @left_eyebrow.setter
-    def left_eyebrow(self, left_eyebrow):
-        """Sets the left_eyebrow of this FaceWithLandmarks.
-
-
-        :param left_eyebrow: The left_eyebrow of this FaceWithLandmarks.  # noqa: E501
-        :type: list[FacePoint]
-        """
-
-        self._left_eyebrow = left_eyebrow
-
-    @property
-    def right_eyebrow(self):
-        """Gets the right_eyebrow of this FaceWithLandmarks.  # noqa: E501
-
-
-        :return: The right_eyebrow of this FaceWithLandmarks.  # noqa: E501
-        :rtype: list[FacePoint]
-        """
-        return self._right_eyebrow
-
-    @right_eyebrow.setter
-    def right_eyebrow(self, right_eyebrow):
-        """Sets the right_eyebrow of this FaceWithLandmarks.
-
-
-        :param right_eyebrow: The right_eyebrow of this FaceWithLandmarks.  # noqa: E501
-        :type: list[FacePoint]
-        """
-
-        self._right_eyebrow = right_eyebrow
-
-    @property
-    def left_eye(self):
-        """Gets the left_eye of this FaceWithLandmarks.  # noqa: E501
-
-
-        :return: The left_eye of this FaceWithLandmarks.  # noqa: E501
-        :rtype: list[FacePoint]
-        """
-        return self._left_eye
-
-    @left_eye.setter
-    def left_eye(self, left_eye):
-        """Sets the left_eye of this FaceWithLandmarks.
-
-
-        :param left_eye: The left_eye of this FaceWithLandmarks.  # noqa: E501
-        :type: list[FacePoint]
-        """
-
-        self._left_eye = left_eye
-
-    @property
-    def right_eye(self):
-        """Gets the right_eye of this FaceWithLandmarks.  # noqa: E501
-
-
-        :return: The right_eye of this FaceWithLandmarks.  # noqa: E501
-        :rtype: list[FacePoint]
-        """
-        return self._right_eye
-
-    @right_eye.setter
-    def right_eye(self, right_eye):
-        """Sets the right_eye of this FaceWithLandmarks.
-
-
-        :param right_eye: The right_eye of this FaceWithLandmarks.  # noqa: E501
-        :type: list[FacePoint]
-        """
-
-        self._right_eye = right_eye
-
-    @property
-    def bottom_and_sides_of_face(self):
-        """Gets the bottom_and_sides_of_face of this FaceWithLandmarks.  # noqa: E501
-
-
-        :return: The bottom_and_sides_of_face of this FaceWithLandmarks.  # noqa: E501
-        :rtype: list[FacePoint]
-        """
-        return self._bottom_and_sides_of_face
-
-    @bottom_and_sides_of_face.setter
-    def bottom_and_sides_of_face(self, bottom_and_sides_of_face):
-        """Sets the bottom_and_sides_of_face of this FaceWithLandmarks.
-
-
-        :param bottom_and_sides_of_face: The bottom_and_sides_of_face of this FaceWithLandmarks.  # noqa: E501
-        :type: list[FacePoint]
-        """
-
-        self._bottom_and_sides_of_face = bottom_and_sides_of_face
-
-    @property
-    def nose_bridge(self):
-        """Gets the nose_bridge of this FaceWithLandmarks.  # noqa: E501
-
-
-        :return: The nose_bridge of this FaceWithLandmarks.  # noqa: E501
-        :rtype: list[FacePoint]
-        """
-        return self._nose_bridge
-
-    @nose_bridge.setter
-    def nose_bridge(self, nose_bridge):
-        """Sets the nose_bridge of this FaceWithLandmarks.
-
-
-        :param nose_bridge: The nose_bridge of this FaceWithLandmarks.  # noqa: E501
-        :type: list[FacePoint]
-        """
-
-        self._nose_bridge = nose_bridge
-
-    @property
-    def nose_bottom(self):
-        """Gets the nose_bottom of this FaceWithLandmarks.  # noqa: E501
-
-
-        :return: The nose_bottom of this FaceWithLandmarks.  # noqa: E501
-        :rtype: list[FacePoint]
-        """
-        return self._nose_bottom
-
-    @nose_bottom.setter
-    def nose_bottom(self, nose_bottom):
-        """Sets the nose_bottom of this FaceWithLandmarks.
-
-
-        :param nose_bottom: The nose_bottom of this FaceWithLandmarks.  # noqa: E501
-        :type: list[FacePoint]
-        """
-
-        self._nose_bottom = nose_bottom
-
-    @property
-    def lips_inner_outline(self):
-        """Gets the lips_inner_outline of this FaceWithLandmarks.  # noqa: E501
-
-
-        :return: The lips_inner_outline of this FaceWithLandmarks.  # noqa: E501
-        :rtype: list[FacePoint]
-        """
-        return self._lips_inner_outline
-
-    @lips_inner_outline.setter
-    def lips_inner_outline(self, lips_inner_outline):
-        """Sets the lips_inner_outline of this FaceWithLandmarks.
-
-
-        :param lips_inner_outline: The lips_inner_outline of this FaceWithLandmarks.  # noqa: E501
-        :type: list[FacePoint]
-        """
-
-        self._lips_inner_outline = lips_inner_outline
-
-    @property
-    def lips_outer_outline(self):
-        """Gets the lips_outer_outline of this FaceWithLandmarks.  # noqa: E501
-
-
-        :return: The lips_outer_outline of this FaceWithLandmarks.  # noqa: E501
-        :rtype: list[FacePoint]
-        """
-        return self._lips_outer_outline
-
-    @lips_outer_outline.setter
-    def lips_outer_outline(self, lips_outer_outline):
-        """Sets the lips_outer_outline of this FaceWithLandmarks.
-
-
-        :param lips_outer_outline: The lips_outer_outline of this FaceWithLandmarks.  # noqa: E501
-        :type: list[FacePoint]
-        """
-
-        self._lips_outer_outline = lips_outer_outline
 
     @property
     def left_x(self):
@@ -389,6 +200,213 @@ class FaceWithLandmarks(object):
         """
 
         self._bottom_y = bottom_y
+
+    @property
+    def left_eyebrow(self):
+        """Gets the left_eyebrow of this FaceWithLandmarks.  # noqa: E501
+
+        Point locations of the left eyebrow (the eyebrow cloesest to the left side of the picture)  # noqa: E501
+
+        :return: The left_eyebrow of this FaceWithLandmarks.  # noqa: E501
+        :rtype: list[FacePoint]
+        """
+        return self._left_eyebrow
+
+    @left_eyebrow.setter
+    def left_eyebrow(self, left_eyebrow):
+        """Sets the left_eyebrow of this FaceWithLandmarks.
+
+        Point locations of the left eyebrow (the eyebrow cloesest to the left side of the picture)  # noqa: E501
+
+        :param left_eyebrow: The left_eyebrow of this FaceWithLandmarks.  # noqa: E501
+        :type: list[FacePoint]
+        """
+
+        self._left_eyebrow = left_eyebrow
+
+    @property
+    def right_eyebrow(self):
+        """Gets the right_eyebrow of this FaceWithLandmarks.  # noqa: E501
+
+        Point locations of the right eyebrow (the eyebrow cloesest to the right side of the picture)  # noqa: E501
+
+        :return: The right_eyebrow of this FaceWithLandmarks.  # noqa: E501
+        :rtype: list[FacePoint]
+        """
+        return self._right_eyebrow
+
+    @right_eyebrow.setter
+    def right_eyebrow(self, right_eyebrow):
+        """Sets the right_eyebrow of this FaceWithLandmarks.
+
+        Point locations of the right eyebrow (the eyebrow cloesest to the right side of the picture)  # noqa: E501
+
+        :param right_eyebrow: The right_eyebrow of this FaceWithLandmarks.  # noqa: E501
+        :type: list[FacePoint]
+        """
+
+        self._right_eyebrow = right_eyebrow
+
+    @property
+    def left_eye(self):
+        """Gets the left_eye of this FaceWithLandmarks.  # noqa: E501
+
+        Point locations of the left eye (the eye closest to the left side of the picture)  # noqa: E501
+
+        :return: The left_eye of this FaceWithLandmarks.  # noqa: E501
+        :rtype: list[FacePoint]
+        """
+        return self._left_eye
+
+    @left_eye.setter
+    def left_eye(self, left_eye):
+        """Sets the left_eye of this FaceWithLandmarks.
+
+        Point locations of the left eye (the eye closest to the left side of the picture)  # noqa: E501
+
+        :param left_eye: The left_eye of this FaceWithLandmarks.  # noqa: E501
+        :type: list[FacePoint]
+        """
+
+        self._left_eye = left_eye
+
+    @property
+    def right_eye(self):
+        """Gets the right_eye of this FaceWithLandmarks.  # noqa: E501
+
+        Point locations of the right eye (the eye closest to the right side of the picture)  # noqa: E501
+
+        :return: The right_eye of this FaceWithLandmarks.  # noqa: E501
+        :rtype: list[FacePoint]
+        """
+        return self._right_eye
+
+    @right_eye.setter
+    def right_eye(self, right_eye):
+        """Sets the right_eye of this FaceWithLandmarks.
+
+        Point locations of the right eye (the eye closest to the right side of the picture)  # noqa: E501
+
+        :param right_eye: The right_eye of this FaceWithLandmarks.  # noqa: E501
+        :type: list[FacePoint]
+        """
+
+        self._right_eye = right_eye
+
+    @property
+    def bottom_and_sides_of_face(self):
+        """Gets the bottom_and_sides_of_face of this FaceWithLandmarks.  # noqa: E501
+
+        Point locations of the bottom and sides of the face (cheeks and chin)  # noqa: E501
+
+        :return: The bottom_and_sides_of_face of this FaceWithLandmarks.  # noqa: E501
+        :rtype: list[FacePoint]
+        """
+        return self._bottom_and_sides_of_face
+
+    @bottom_and_sides_of_face.setter
+    def bottom_and_sides_of_face(self, bottom_and_sides_of_face):
+        """Sets the bottom_and_sides_of_face of this FaceWithLandmarks.
+
+        Point locations of the bottom and sides of the face (cheeks and chin)  # noqa: E501
+
+        :param bottom_and_sides_of_face: The bottom_and_sides_of_face of this FaceWithLandmarks.  # noqa: E501
+        :type: list[FacePoint]
+        """
+
+        self._bottom_and_sides_of_face = bottom_and_sides_of_face
+
+    @property
+    def nose_bridge(self):
+        """Gets the nose_bridge of this FaceWithLandmarks.  # noqa: E501
+
+        Point locations of the nose bridge (the vertical portion of the nose)  # noqa: E501
+
+        :return: The nose_bridge of this FaceWithLandmarks.  # noqa: E501
+        :rtype: list[FacePoint]
+        """
+        return self._nose_bridge
+
+    @nose_bridge.setter
+    def nose_bridge(self, nose_bridge):
+        """Sets the nose_bridge of this FaceWithLandmarks.
+
+        Point locations of the nose bridge (the vertical portion of the nose)  # noqa: E501
+
+        :param nose_bridge: The nose_bridge of this FaceWithLandmarks.  # noqa: E501
+        :type: list[FacePoint]
+        """
+
+        self._nose_bridge = nose_bridge
+
+    @property
+    def nose_bottom(self):
+        """Gets the nose_bottom of this FaceWithLandmarks.  # noqa: E501
+
+        Point locations of the bottom (nostrils) of the nose  # noqa: E501
+
+        :return: The nose_bottom of this FaceWithLandmarks.  # noqa: E501
+        :rtype: list[FacePoint]
+        """
+        return self._nose_bottom
+
+    @nose_bottom.setter
+    def nose_bottom(self, nose_bottom):
+        """Sets the nose_bottom of this FaceWithLandmarks.
+
+        Point locations of the bottom (nostrils) of the nose  # noqa: E501
+
+        :param nose_bottom: The nose_bottom of this FaceWithLandmarks.  # noqa: E501
+        :type: list[FacePoint]
+        """
+
+        self._nose_bottom = nose_bottom
+
+    @property
+    def lips_inner_outline(self):
+        """Gets the lips_inner_outline of this FaceWithLandmarks.  # noqa: E501
+
+        Point locations of the inner outline of the lips  # noqa: E501
+
+        :return: The lips_inner_outline of this FaceWithLandmarks.  # noqa: E501
+        :rtype: list[FacePoint]
+        """
+        return self._lips_inner_outline
+
+    @lips_inner_outline.setter
+    def lips_inner_outline(self, lips_inner_outline):
+        """Sets the lips_inner_outline of this FaceWithLandmarks.
+
+        Point locations of the inner outline of the lips  # noqa: E501
+
+        :param lips_inner_outline: The lips_inner_outline of this FaceWithLandmarks.  # noqa: E501
+        :type: list[FacePoint]
+        """
+
+        self._lips_inner_outline = lips_inner_outline
+
+    @property
+    def lips_outer_outline(self):
+        """Gets the lips_outer_outline of this FaceWithLandmarks.  # noqa: E501
+
+        Point locations of the outer outline of the lips  # noqa: E501
+
+        :return: The lips_outer_outline of this FaceWithLandmarks.  # noqa: E501
+        :rtype: list[FacePoint]
+        """
+        return self._lips_outer_outline
+
+    @lips_outer_outline.setter
+    def lips_outer_outline(self, lips_outer_outline):
+        """Sets the lips_outer_outline of this FaceWithLandmarks.
+
+        Point locations of the outer outline of the lips  # noqa: E501
+
+        :param lips_outer_outline: The lips_outer_outline of this FaceWithLandmarks.  # noqa: E501
+        :type: list[FacePoint]
+        """
+
+        self._lips_outer_outline = lips_outer_outline
 
     def to_dict(self):
         """Returns the model properties as a dict"""

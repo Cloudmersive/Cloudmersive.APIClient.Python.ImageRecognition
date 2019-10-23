@@ -16,8 +16,10 @@ from __future__ import absolute_import
 
 # import models into model package
 from cloudmersive_image_api_client.models.age_detection_result import AgeDetectionResult
+from cloudmersive_image_api_client.models.color_result import ColorResult
 from cloudmersive_image_api_client.models.detected_license_plate import DetectedLicensePlate
 from cloudmersive_image_api_client.models.detected_object import DetectedObject
+from cloudmersive_image_api_client.models.dominant_color_result import DominantColorResult
 from cloudmersive_image_api_client.models.draw_polygon_instance import DrawPolygonInstance
 from cloudmersive_image_api_client.models.draw_polygon_request import DrawPolygonRequest
 from cloudmersive_image_api_client.models.draw_rectangle_instance import DrawRectangleInstance

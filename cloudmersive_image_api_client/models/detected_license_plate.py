@@ -31,37 +31,41 @@ class DetectedLicensePlate(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'license_plate_text_best_match': 'str',
+        'license_plate_text_runner_up': 'str',
         'location_x': 'int',
         'location_y': 'int',
         'width': 'int',
         'height': 'int',
-        'license_plate_text_best_match': 'str',
-        'license_plate_text_runner_up': 'str',
         'license_plate_recognition_confidence_level': 'float'
     }
 
     attribute_map = {
+        'license_plate_text_best_match': 'LicensePlateText_BestMatch',
+        'license_plate_text_runner_up': 'LicensePlateText_RunnerUp',
         'location_x': 'LocationX',
         'location_y': 'LocationY',
         'width': 'Width',
         'height': 'Height',
-        'license_plate_text_best_match': 'LicensePlateText_BestMatch',
-        'license_plate_text_runner_up': 'LicensePlateText_RunnerUp',
         'license_plate_recognition_confidence_level': 'LicensePlateRecognitionConfidenceLevel'
     }
 
-    def __init__(self, location_x=None, location_y=None, width=None, height=None, license_plate_text_best_match=None, license_plate_text_runner_up=None, license_plate_recognition_confidence_level=None):  # noqa: E501
+    def __init__(self, license_plate_text_best_match=None, license_plate_text_runner_up=None, location_x=None, location_y=None, width=None, height=None, license_plate_recognition_confidence_level=None):  # noqa: E501
         """DetectedLicensePlate - a model defined in Swagger"""  # noqa: E501
 
+        self._license_plate_text_best_match = None
+        self._license_plate_text_runner_up = None
         self._location_x = None
         self._location_y = None
         self._width = None
         self._height = None
-        self._license_plate_text_best_match = None
-        self._license_plate_text_runner_up = None
         self._license_plate_recognition_confidence_level = None
         self.discriminator = None
 
+        if license_plate_text_best_match is not None:
+            self.license_plate_text_best_match = license_plate_text_best_match
+        if license_plate_text_runner_up is not None:
+            self.license_plate_text_runner_up = license_plate_text_runner_up
         if location_x is not None:
             self.location_x = location_x
         if location_y is not None:
@@ -70,96 +74,8 @@ class DetectedLicensePlate(object):
             self.width = width
         if height is not None:
             self.height = height
-        if license_plate_text_best_match is not None:
-            self.license_plate_text_best_match = license_plate_text_best_match
-        if license_plate_text_runner_up is not None:
-            self.license_plate_text_runner_up = license_plate_text_runner_up
         if license_plate_recognition_confidence_level is not None:
             self.license_plate_recognition_confidence_level = license_plate_recognition_confidence_level
-
-    @property
-    def location_x(self):
-        """Gets the location_x of this DetectedLicensePlate.  # noqa: E501
-
-
-        :return: The location_x of this DetectedLicensePlate.  # noqa: E501
-        :rtype: int
-        """
-        return self._location_x
-
-    @location_x.setter
-    def location_x(self, location_x):
-        """Sets the location_x of this DetectedLicensePlate.
-
-
-        :param location_x: The location_x of this DetectedLicensePlate.  # noqa: E501
-        :type: int
-        """
-
-        self._location_x = location_x
-
-    @property
-    def location_y(self):
-        """Gets the location_y of this DetectedLicensePlate.  # noqa: E501
-
-
-        :return: The location_y of this DetectedLicensePlate.  # noqa: E501
-        :rtype: int
-        """
-        return self._location_y
-
-    @location_y.setter
-    def location_y(self, location_y):
-        """Sets the location_y of this DetectedLicensePlate.
-
-
-        :param location_y: The location_y of this DetectedLicensePlate.  # noqa: E501
-        :type: int
-        """
-
-        self._location_y = location_y
-
-    @property
-    def width(self):
-        """Gets the width of this DetectedLicensePlate.  # noqa: E501
-
-
-        :return: The width of this DetectedLicensePlate.  # noqa: E501
-        :rtype: int
-        """
-        return self._width
-
-    @width.setter
-    def width(self, width):
-        """Sets the width of this DetectedLicensePlate.
-
-
-        :param width: The width of this DetectedLicensePlate.  # noqa: E501
-        :type: int
-        """
-
-        self._width = width
-
-    @property
-    def height(self):
-        """Gets the height of this DetectedLicensePlate.  # noqa: E501
-
-
-        :return: The height of this DetectedLicensePlate.  # noqa: E501
-        :rtype: int
-        """
-        return self._height
-
-    @height.setter
-    def height(self, height):
-        """Sets the height of this DetectedLicensePlate.
-
-
-        :param height: The height of this DetectedLicensePlate.  # noqa: E501
-        :type: int
-        """
-
-        self._height = height
 
     @property
     def license_plate_text_best_match(self):
@@ -206,6 +122,98 @@ class DetectedLicensePlate(object):
         """
 
         self._license_plate_text_runner_up = license_plate_text_runner_up
+
+    @property
+    def location_x(self):
+        """Gets the location_x of this DetectedLicensePlate.  # noqa: E501
+
+        X location of the left edge of the license plate, starting from the left edge of the photo (X = 0)  # noqa: E501
+
+        :return: The location_x of this DetectedLicensePlate.  # noqa: E501
+        :rtype: int
+        """
+        return self._location_x
+
+    @location_x.setter
+    def location_x(self, location_x):
+        """Sets the location_x of this DetectedLicensePlate.
+
+        X location of the left edge of the license plate, starting from the left edge of the photo (X = 0)  # noqa: E501
+
+        :param location_x: The location_x of this DetectedLicensePlate.  # noqa: E501
+        :type: int
+        """
+
+        self._location_x = location_x
+
+    @property
+    def location_y(self):
+        """Gets the location_y of this DetectedLicensePlate.  # noqa: E501
+
+        Y location of the top edge of the license plate, starting from the top edge of the photo (Y = 0)  # noqa: E501
+
+        :return: The location_y of this DetectedLicensePlate.  # noqa: E501
+        :rtype: int
+        """
+        return self._location_y
+
+    @location_y.setter
+    def location_y(self, location_y):
+        """Sets the location_y of this DetectedLicensePlate.
+
+        Y location of the top edge of the license plate, starting from the top edge of the photo (Y = 0)  # noqa: E501
+
+        :param location_y: The location_y of this DetectedLicensePlate.  # noqa: E501
+        :type: int
+        """
+
+        self._location_y = location_y
+
+    @property
+    def width(self):
+        """Gets the width of this DetectedLicensePlate.  # noqa: E501
+
+        Width of the license plate's location in pixels  # noqa: E501
+
+        :return: The width of this DetectedLicensePlate.  # noqa: E501
+        :rtype: int
+        """
+        return self._width
+
+    @width.setter
+    def width(self, width):
+        """Sets the width of this DetectedLicensePlate.
+
+        Width of the license plate's location in pixels  # noqa: E501
+
+        :param width: The width of this DetectedLicensePlate.  # noqa: E501
+        :type: int
+        """
+
+        self._width = width
+
+    @property
+    def height(self):
+        """Gets the height of this DetectedLicensePlate.  # noqa: E501
+
+        Height of the license plate's location in pixels  # noqa: E501
+
+        :return: The height of this DetectedLicensePlate.  # noqa: E501
+        :rtype: int
+        """
+        return self._height
+
+    @height.setter
+    def height(self, height):
+        """Sets the height of this DetectedLicensePlate.
+
+        Height of the license plate's location in pixels  # noqa: E501
+
+        :param height: The height of this DetectedLicensePlate.  # noqa: E501
+        :type: int
+        """
+
+        self._height = height
 
     @property
     def license_plate_recognition_confidence_level(self):
