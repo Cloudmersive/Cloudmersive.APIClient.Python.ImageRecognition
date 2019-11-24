@@ -691,45 +691,47 @@ class FilterApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def filter_posterize(self, levels, **kwargs):  # noqa: E501
+    def filter_posterize(self, levels, image_file, **kwargs):  # noqa: E501
         """Posterize the image by reducing distinct colors  # noqa: E501
 
         Reduce the unique number of colors in the image to the specified level  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.filter_posterize(levels, async_req=True)
+        >>> thread = api.filter_posterize(levels, image_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int levels: Number of unique colors to retain in the output image (required)
-        :return: object
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.filter_posterize_with_http_info(levels, **kwargs)  # noqa: E501
+            return self.filter_posterize_with_http_info(levels, image_file, **kwargs)  # noqa: E501
         else:
-            (data) = self.filter_posterize_with_http_info(levels, **kwargs)  # noqa: E501
+            (data) = self.filter_posterize_with_http_info(levels, image_file, **kwargs)  # noqa: E501
             return data
 
-    def filter_posterize_with_http_info(self, levels, **kwargs):  # noqa: E501
+    def filter_posterize_with_http_info(self, levels, image_file, **kwargs):  # noqa: E501
         """Posterize the image by reducing distinct colors  # noqa: E501
 
         Reduce the unique number of colors in the image to the specified level  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.filter_posterize_with_http_info(levels, async_req=True)
+        >>> thread = api.filter_posterize_with_http_info(levels, image_file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int levels: Number of unique colors to retain in the output image (required)
-        :return: object
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['levels']  # noqa: E501
+        all_params = ['levels', 'image_file']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -748,6 +750,10 @@ class FilterApi(object):
         if ('levels' not in params or
                 params['levels'] is None):
             raise ValueError("Missing the required parameter `levels` when calling `filter_posterize`")  # noqa: E501
+        # verify the required parameter 'image_file' is set
+        if ('image_file' not in params or
+                params['image_file'] is None):
+            raise ValueError("Missing the required parameter `image_file` when calling `filter_posterize`")  # noqa: E501
 
         collection_formats = {}
 
@@ -761,11 +767,17 @@ class FilterApi(object):
 
         form_params = []
         local_var_files = {}
+        if 'image_file' in params:
+            local_var_files['imageFile'] = params['image_file']  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/octet-stream'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['Apikey']  # noqa: E501
@@ -778,7 +790,7 @@ class FilterApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  # noqa: E501
+            response_type='str',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

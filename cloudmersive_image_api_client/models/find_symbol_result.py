@@ -32,6 +32,7 @@ class FindSymbolResult(object):
     """
     swagger_types = {
         'successful': 'bool',
+        'match_score': 'float',
         'x_left': 'int',
         'y_top': 'int',
         'width': 'int',
@@ -40,16 +41,18 @@ class FindSymbolResult(object):
 
     attribute_map = {
         'successful': 'Successful',
+        'match_score': 'MatchScore',
         'x_left': 'XLeft',
         'y_top': 'YTop',
         'width': 'Width',
         'height': 'Height'
     }
 
-    def __init__(self, successful=None, x_left=None, y_top=None, width=None, height=None):  # noqa: E501
+    def __init__(self, successful=None, match_score=None, x_left=None, y_top=None, width=None, height=None):  # noqa: E501
         """FindSymbolResult - a model defined in Swagger"""  # noqa: E501
 
         self._successful = None
+        self._match_score = None
         self._x_left = None
         self._y_top = None
         self._width = None
@@ -58,6 +61,8 @@ class FindSymbolResult(object):
 
         if successful is not None:
             self.successful = successful
+        if match_score is not None:
+            self.match_score = match_score
         if x_left is not None:
             self.x_left = x_left
         if y_top is not None:
@@ -89,6 +94,29 @@ class FindSymbolResult(object):
         """
 
         self._successful = successful
+
+    @property
+    def match_score(self):
+        """Gets the match_score of this FindSymbolResult.  # noqa: E501
+
+        Score between 0.0 and 1.0 that measures how closely the symbol matched; scores above 0.2 are good  # noqa: E501
+
+        :return: The match_score of this FindSymbolResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._match_score
+
+    @match_score.setter
+    def match_score(self, match_score):
+        """Sets the match_score of this FindSymbolResult.
+
+        Score between 0.0 and 1.0 that measures how closely the symbol matched; scores above 0.2 are good  # noqa: E501
+
+        :param match_score: The match_score of this FindSymbolResult.  # noqa: E501
+        :type: float
+        """
+
+        self._match_score = match_score
 
     @property
     def x_left(self):

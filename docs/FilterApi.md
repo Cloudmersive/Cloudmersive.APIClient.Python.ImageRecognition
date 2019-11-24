@@ -355,7 +355,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **filter_posterize**
-> object filter_posterize(levels)
+> str filter_posterize(levels, image_file)
 
 Posterize the image by reducing distinct colors
 
@@ -378,10 +378,11 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = cloudmersive_image_api_client.FilterApi(cloudmersive_image_api_client.ApiClient(configuration))
 levels = 56 # int | Number of unique colors to retain in the output image
+image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
     # Posterize the image by reducing distinct colors
-    api_response = api_instance.filter_posterize(levels)
+    api_response = api_instance.filter_posterize(levels, image_file)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling FilterApi->filter_posterize: %s\n" % e)
@@ -392,10 +393,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **levels** | **int**| Number of unique colors to retain in the output image | 
+ **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-**object**
+**str**
 
 ### Authorization
 
@@ -403,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

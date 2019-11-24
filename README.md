@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 This Python package provides a native API client for [Cloudmersive Image Recognition and Processing](https://www.cloudmersive.com/image-recognition-and-processing-api)
 
 - API version: v1
-- Package version: 2.1.0
+- Package version: 2.1.1
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -78,6 +78,9 @@ All URIs are relative to *https://api.cloudmersive.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ArtisticApi* | [**artistic_painting**](docs/ArtisticApi.md#artistic_painting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
+*ConvertApi* | [**convert_to_gif**](docs/ConvertApi.md#convert_to_gif) | **POST** /image/convert/to/gif | Convert input image to GIF format
+*ConvertApi* | [**convert_to_jpg**](docs/ConvertApi.md#convert_to_jpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG/JPEG format
+*ConvertApi* | [**convert_to_png**](docs/ConvertApi.md#convert_to_png) | **POST** /image/convert/to/png | Convert input image to PNG format
 *EditApi* | [**edit_auto_orient**](docs/EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 *EditApi* | [**edit_composite_basic**](docs/EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
 *EditApi* | [**edit_contrast_adaptive**](docs/EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
