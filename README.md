@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 This Python package provides a native API client for [Cloudmersive Image Recognition and Processing](https://www.cloudmersive.com/image-recognition-and-processing-api)
 
 - API version: v1
-- Package version: 2.0.9
+- Package version: 2.1.0
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -81,9 +81,11 @@ Class | Method | HTTP request | Description
 *EditApi* | [**edit_auto_orient**](docs/EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 *EditApi* | [**edit_composite_basic**](docs/EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
 *EditApi* | [**edit_contrast_adaptive**](docs/EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+*EditApi* | [**edit_crop_rectangle**](docs/EditApi.md#edit_crop_rectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 *EditApi* | [**edit_draw_polygon**](docs/EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 *EditApi* | [**edit_draw_rectangle**](docs/EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 *EditApi* | [**edit_draw_text**](docs/EditApi.md#edit_draw_text) | **POST** /image/edit/draw/text | Draw text onto an image
+*EditApi* | [**edit_drop_shadow**](docs/EditApi.md#edit_drop_shadow) | **POST** /image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
 *EditApi* | [**edit_rotate**](docs/EditApi.md#edit_rotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 *FaceApi* | [**face_compare**](docs/FaceApi.md#face_compare) | **POST** /image/face/compare-and-match | Compare and match faces
 *FaceApi* | [**face_crop_first**](docs/FaceApi.md#face_crop_first) | **POST** /image/face/crop/first | Crop image to face (square)
@@ -92,6 +94,14 @@ Class | Method | HTTP request | Description
 *FaceApi* | [**face_detect_gender**](docs/FaceApi.md#face_detect_gender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
 *FaceApi* | [**face_locate**](docs/FaceApi.md#face_locate) | **POST** /image/face/locate | Find faces in an image
 *FaceApi* | [**face_locate_with_landmarks**](docs/FaceApi.md#face_locate_with_landmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+*FilterApi* | [**filter_black_and_white**](docs/FilterApi.md#filter_black_and_white) | **POST** /image/filter/black-and-white | Convert image to black-and-white grayscale
+*FilterApi* | [**filter_despeckle**](docs/FilterApi.md#filter_despeckle) | **POST** /image/filter/despeckle | Despeckle (remove point noise) from the image
+*FilterApi* | [**filter_edge_detect**](docs/FilterApi.md#filter_edge_detect) | **POST** /image/filter/edge-detect/{radius} | Detect and highlight edges in an image
+*FilterApi* | [**filter_emboss**](docs/FilterApi.md#filter_emboss) | **POST** /image/filter/emboss/{radius}/{sigma} | Emboss an image
+*FilterApi* | [**filter_gaussian_blur**](docs/FilterApi.md#filter_gaussian_blur) | **POST** /image/filter/blur/guassian/{radius}/{sigma} | Perform a guassian blur on the input image
+*FilterApi* | [**filter_motion_blur**](docs/FilterApi.md#filter_motion_blur) | **POST** /image/filter/blur/motion/{radius}/{sigma}/{angle} | Perform a motion blur on the input image
+*FilterApi* | [**filter_posterize**](docs/FilterApi.md#filter_posterize) | **POST** /image/filter/posterize | Posterize the image by reducing distinct colors
+*FilterApi* | [**filter_swirl**](docs/FilterApi.md#filter_swirl) | **POST** /image/filter/swirl | Swirl distort the image
 *InfoApi* | [**info_get_dominant_color**](docs/InfoApi.md#info_get_dominant_color) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
 *NsfwApi* | [**nsfw_classify**](docs/NsfwApi.md#nsfw_classify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
 *RecognizeApi* | [**recognize_describe**](docs/RecognizeApi.md#recognize_describe) | **POST** /image/recognize/describe | Describe an image in natural language
@@ -101,7 +111,9 @@ Class | Method | HTTP request | Description
 *RecognizeApi* | [**recognize_detect_text_fine**](docs/RecognizeApi.md#recognize_detect_text_fine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 *RecognizeApi* | [**recognize_detect_text_large**](docs/RecognizeApi.md#recognize_detect_text_large) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 *RecognizeApi* | [**recognize_detect_vehicle_license_plates**](docs/RecognizeApi.md#recognize_detect_vehicle_license_plates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
-*ResizeApi* | [**resize_post**](docs/ResizeApi.md#resize_post) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image with parameters
+*RecognizeApi* | [**recognize_find_symbol**](docs/RecognizeApi.md#recognize_find_symbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
+*ResizeApi* | [**resize_post**](docs/ResizeApi.md#resize_post) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
+*ResizeApi* | [**resize_resize_simple**](docs/ResizeApi.md#resize_resize_simple) | **POST** /image/resize/target/{width}/{height} | Resize an image
 
 
 ## Documentation For Models
@@ -124,6 +136,7 @@ Class | Method | HTTP request | Description
  - [FaceMatch](docs/FaceMatch.md)
  - [FacePoint](docs/FacePoint.md)
  - [FaceWithLandmarks](docs/FaceWithLandmarks.md)
+ - [FindSymbolResult](docs/FindSymbolResult.md)
  - [FineTextDetectionResult](docs/FineTextDetectionResult.md)
  - [FineTextItem](docs/FineTextItem.md)
  - [GenderDetectionResult](docs/GenderDetectionResult.md)

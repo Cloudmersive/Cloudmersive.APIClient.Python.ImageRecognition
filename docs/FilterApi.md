@@ -1,79 +1,25 @@
-# cloudmersive_image_api_client.RecognizeApi
+# cloudmersive_image_api_client.FilterApi
 
 All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**recognize_describe**](RecognizeApi.md#recognize_describe) | **POST** /image/recognize/describe | Describe an image in natural language
-[**recognize_detect_and_unskew_document**](RecognizeApi.md#recognize_detect_and_unskew_document) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
-[**recognize_detect_objects**](RecognizeApi.md#recognize_detect_objects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
-[**recognize_detect_people**](RecognizeApi.md#recognize_detect_people) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
-[**recognize_detect_text_fine**](RecognizeApi.md#recognize_detect_text_fine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
-[**recognize_detect_text_large**](RecognizeApi.md#recognize_detect_text_large) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
-[**recognize_detect_vehicle_license_plates**](RecognizeApi.md#recognize_detect_vehicle_license_plates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
-[**recognize_find_symbol**](RecognizeApi.md#recognize_find_symbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
+[**filter_black_and_white**](FilterApi.md#filter_black_and_white) | **POST** /image/filter/black-and-white | Convert image to black-and-white grayscale
+[**filter_despeckle**](FilterApi.md#filter_despeckle) | **POST** /image/filter/despeckle | Despeckle (remove point noise) from the image
+[**filter_edge_detect**](FilterApi.md#filter_edge_detect) | **POST** /image/filter/edge-detect/{radius} | Detect and highlight edges in an image
+[**filter_emboss**](FilterApi.md#filter_emboss) | **POST** /image/filter/emboss/{radius}/{sigma} | Emboss an image
+[**filter_gaussian_blur**](FilterApi.md#filter_gaussian_blur) | **POST** /image/filter/blur/guassian/{radius}/{sigma} | Perform a guassian blur on the input image
+[**filter_motion_blur**](FilterApi.md#filter_motion_blur) | **POST** /image/filter/blur/motion/{radius}/{sigma}/{angle} | Perform a motion blur on the input image
+[**filter_posterize**](FilterApi.md#filter_posterize) | **POST** /image/filter/posterize | Posterize the image by reducing distinct colors
+[**filter_swirl**](FilterApi.md#filter_swirl) | **POST** /image/filter/swirl | Swirl distort the image
 
 
-# **recognize_describe**
-> ImageDescriptionResponse recognize_describe(image_file)
+# **filter_black_and_white**
+> str filter_black_and_white(image_file)
 
-Describe an image in natural language
+Convert image to black-and-white grayscale
 
-Generate an English language text description of the image as a sentence.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import cloudmersive_image_api_client
-from cloudmersive_image_api_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: Apikey
-configuration = cloudmersive_image_api_client.Configuration()
-configuration.api_key['Apikey'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Apikey'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = cloudmersive_image_api_client.RecognizeApi(cloudmersive_image_api_client.ApiClient(configuration))
-image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-
-try:
-    # Describe an image in natural language
-    api_response = api_instance.recognize_describe(image_file)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RecognizeApi->recognize_describe: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
-
-### Return type
-
-[**ImageDescriptionResponse**](ImageDescriptionResponse.md)
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **recognize_detect_and_unskew_document**
-> str recognize_detect_and_unskew_document(image_file, post_processing_effect=post_processing_effect)
-
-Detect and unskew a photo of a document
-
-Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
+Remove color from the image by converting to a grayscale, black-and-white image
 
 ### Example
 ```python
@@ -90,16 +36,15 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Apikey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudmersive_image_api_client.RecognizeApi(cloudmersive_image_api_client.ApiClient(configuration))
+api_instance = cloudmersive_image_api_client.FilterApi(cloudmersive_image_api_client.ApiClient(configuration))
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-post_processing_effect = 'post_processing_effect_example' # str | Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations). (optional)
 
 try:
-    # Detect and unskew a photo of a document
-    api_response = api_instance.recognize_detect_and_unskew_document(image_file, post_processing_effect=post_processing_effect)
+    # Convert image to black-and-white grayscale
+    api_response = api_instance.filter_black_and_white(image_file)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecognizeApi->recognize_detect_and_unskew_document: %s\n" % e)
+    print("Exception when calling FilterApi->filter_black_and_white: %s\n" % e)
 ```
 
 ### Parameters
@@ -107,7 +52,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
- **post_processing_effect** | **str**| Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations). | [optional] 
 
 ### Return type
 
@@ -120,16 +64,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **recognize_detect_objects**
-> ObjectDetectionResult recognize_detect_objects(image_file)
+# **filter_despeckle**
+> str filter_despeckle(image_file)
 
-Detect objects, including types and locations, in an image
+Despeckle (remove point noise) from the image
 
-Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
+Remove point noise / despeckle the input image
 
 ### Example
 ```python
@@ -146,15 +90,15 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Apikey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudmersive_image_api_client.RecognizeApi(cloudmersive_image_api_client.ApiClient(configuration))
+api_instance = cloudmersive_image_api_client.FilterApi(cloudmersive_image_api_client.ApiClient(configuration))
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Detect objects, including types and locations, in an image
-    api_response = api_instance.recognize_detect_objects(image_file)
+    # Despeckle (remove point noise) from the image
+    api_response = api_instance.filter_despeckle(image_file)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecognizeApi->recognize_detect_objects: %s\n" % e)
+    print("Exception when calling FilterApi->filter_despeckle: %s\n" % e)
 ```
 
 ### Parameters
@@ -165,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ObjectDetectionResult**](ObjectDetectionResult.md)
+**str**
 
 ### Authorization
 
@@ -174,16 +118,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **recognize_detect_people**
-> ObjectDetectionResult recognize_detect_people(image_file)
+# **filter_edge_detect**
+> str filter_edge_detect(radius, image_file)
 
-Detect people, including locations, in an image
+Detect and highlight edges in an image
 
-Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+Perform an edge detection operation on the input image
 
 ### Example
 ```python
@@ -200,26 +144,28 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Apikey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudmersive_image_api_client.RecognizeApi(cloudmersive_image_api_client.ApiClient(configuration))
+api_instance = cloudmersive_image_api_client.FilterApi(cloudmersive_image_api_client.ApiClient(configuration))
+radius = 56 # int | Radius in pixels of the edge detection operation; a larger radius will produce a greater effect
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Detect people, including locations, in an image
-    api_response = api_instance.recognize_detect_people(image_file)
+    # Detect and highlight edges in an image
+    api_response = api_instance.filter_edge_detect(radius, image_file)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecognizeApi->recognize_detect_people: %s\n" % e)
+    print("Exception when calling FilterApi->filter_edge_detect: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **int**| Radius in pixels of the edge detection operation; a larger radius will produce a greater effect | 
  **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-[**ObjectDetectionResult**](ObjectDetectionResult.md)
+**str**
 
 ### Authorization
 
@@ -228,16 +174,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **recognize_detect_text_fine**
-> FineTextDetectionResult recognize_detect_text_fine(image_file)
+# **filter_emboss**
+> str filter_emboss(radius, sigma, image_file)
 
-Detect fine text in a photo of a document
+Emboss an image
 
-Identify the position, and size of small/fine text within a photograph of a document.  Identify the location of small text in a photo - such as words and other forms of high density text.  Can be used on a scan of a document or a photograph (e.g. smartphone camera) of a document, page or receipt.  For OCR purposes - please see our Deep Learning OCR APIs.
+Perform an emboss operation on the input image
 
 ### Example
 ```python
@@ -254,26 +200,30 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Apikey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudmersive_image_api_client.RecognizeApi(cloudmersive_image_api_client.ApiClient(configuration))
+api_instance = cloudmersive_image_api_client.FilterApi(cloudmersive_image_api_client.ApiClient(configuration))
+radius = 56 # int | Radius in pixels of the emboss operation; a larger radius will produce a greater effect
+sigma = 56 # int | Sigma, or variance, of the emboss operation
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Detect fine text in a photo of a document
-    api_response = api_instance.recognize_detect_text_fine(image_file)
+    # Emboss an image
+    api_response = api_instance.filter_emboss(radius, sigma, image_file)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecognizeApi->recognize_detect_text_fine: %s\n" % e)
+    print("Exception when calling FilterApi->filter_emboss: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **int**| Radius in pixels of the emboss operation; a larger radius will produce a greater effect | 
+ **sigma** | **int**| Sigma, or variance, of the emboss operation | 
  **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-[**FineTextDetectionResult**](FineTextDetectionResult.md)
+**str**
 
 ### Authorization
 
@@ -282,16 +232,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **recognize_detect_text_large**
-> TextDetectionResult recognize_detect_text_large(image_file)
+# **filter_gaussian_blur**
+> str filter_gaussian_blur(radius, sigma, image_file)
 
-Detect large text in a photo
+Perform a guassian blur on the input image
 
-Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+Perform a gaussian blur on the input image
 
 ### Example
 ```python
@@ -308,26 +258,30 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Apikey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudmersive_image_api_client.RecognizeApi(cloudmersive_image_api_client.ApiClient(configuration))
+api_instance = cloudmersive_image_api_client.FilterApi(cloudmersive_image_api_client.ApiClient(configuration))
+radius = 56 # int | Radius in pixels of the blur operation; a larger radius will produce a greater blur effect
+sigma = 56 # int | Sigma, or variance, of the gaussian blur operation
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Detect large text in a photo
-    api_response = api_instance.recognize_detect_text_large(image_file)
+    # Perform a guassian blur on the input image
+    api_response = api_instance.filter_gaussian_blur(radius, sigma, image_file)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecognizeApi->recognize_detect_text_large: %s\n" % e)
+    print("Exception when calling FilterApi->filter_gaussian_blur: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **int**| Radius in pixels of the blur operation; a larger radius will produce a greater blur effect | 
+ **sigma** | **int**| Sigma, or variance, of the gaussian blur operation | 
  **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-[**TextDetectionResult**](TextDetectionResult.md)
+**str**
 
 ### Authorization
 
@@ -336,16 +290,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **recognize_detect_vehicle_license_plates**
-> VehicleLicensePlateDetectionResult recognize_detect_vehicle_license_plates(image_file)
+# **filter_motion_blur**
+> str filter_motion_blur(radius, sigma, angle, image_file)
 
-Detect vehicle license plates in an image
+Perform a motion blur on the input image
 
-Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.
+Perform a motion blur on the input image at a specific angle
 
 ### Example
 ```python
@@ -362,26 +316,32 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Apikey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudmersive_image_api_client.RecognizeApi(cloudmersive_image_api_client.ApiClient(configuration))
+api_instance = cloudmersive_image_api_client.FilterApi(cloudmersive_image_api_client.ApiClient(configuration))
+radius = 56 # int | Radius in pixels of the blur operation; a larger radius will produce a greater blur effect
+sigma = 56 # int | Sigma, or variance, of the motion blur operation
+angle = 56 # int | Angle of the motion blur in degrees
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Detect vehicle license plates in an image
-    api_response = api_instance.recognize_detect_vehicle_license_plates(image_file)
+    # Perform a motion blur on the input image
+    api_response = api_instance.filter_motion_blur(radius, sigma, angle, image_file)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecognizeApi->recognize_detect_vehicle_license_plates: %s\n" % e)
+    print("Exception when calling FilterApi->filter_motion_blur: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **int**| Radius in pixels of the blur operation; a larger radius will produce a greater blur effect | 
+ **sigma** | **int**| Sigma, or variance, of the motion blur operation | 
+ **angle** | **int**| Angle of the motion blur in degrees | 
  **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-[**VehicleLicensePlateDetectionResult**](VehicleLicensePlateDetectionResult.md)
+**str**
 
 ### Authorization
 
@@ -390,16 +350,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **recognize_find_symbol**
-> FindSymbolResult recognize_find_symbol(input_image, target_image)
+# **filter_posterize**
+> object filter_posterize(levels)
 
-Find the location of a symbol in an image
+Posterize the image by reducing distinct colors
 
-Determine if an image contains a symbol, and if so, the location of that symbol in the image.
+Reduce the unique number of colors in the image to the specified level
 
 ### Example
 ```python
@@ -416,28 +376,82 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Apikey'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = cloudmersive_image_api_client.RecognizeApi(cloudmersive_image_api_client.ApiClient(configuration))
-input_image = '/path/to/file.txt' # file | Image file to search through for the target image.
-target_image = '/path/to/file.txt' # file | Image to find in the input image.
+api_instance = cloudmersive_image_api_client.FilterApi(cloudmersive_image_api_client.ApiClient(configuration))
+levels = 56 # int | Number of unique colors to retain in the output image
 
 try:
-    # Find the location of a symbol in an image
-    api_response = api_instance.recognize_find_symbol(input_image, target_image)
+    # Posterize the image by reducing distinct colors
+    api_response = api_instance.filter_posterize(levels)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling RecognizeApi->recognize_find_symbol: %s\n" % e)
+    print("Exception when calling FilterApi->filter_posterize: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input_image** | **file**| Image file to search through for the target image. | 
- **target_image** | **file**| Image to find in the input image. | 
+ **levels** | **int**| Number of unique colors to retain in the output image | 
 
 ### Return type
 
-[**FindSymbolResult**](FindSymbolResult.md)
+**object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **filter_swirl**
+> str filter_swirl(degrees, image_file)
+
+Swirl distort the image
+
+Swirl distort the image by the specified number of degrees
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudmersive_image_api_client
+from cloudmersive_image_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: Apikey
+configuration = cloudmersive_image_api_client.Configuration()
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudmersive_image_api_client.FilterApi(cloudmersive_image_api_client.ApiClient(configuration))
+degrees = 56 # int | Degrees of swirl
+image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+try:
+    # Swirl distort the image
+    api_response = api_instance.filter_swirl(degrees, image_file)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FilterApi->filter_swirl: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **degrees** | **int**| Degrees of swirl | 
+ **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**str**
 
 ### Authorization
 
@@ -446,7 +460,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

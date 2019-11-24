@@ -354,6 +354,137 @@ class EditApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def edit_crop_rectangle(self, left, top, width, height, image_file, **kwargs):  # noqa: E501
+        """Crop an image to a rectangular area  # noqa: E501
+
+        Crop an image to a target rectangular area  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_crop_rectangle(left, top, width, height, image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int left: The left edge of the rectangular crop area in pixels (X). (required)
+        :param int top: The top edge of the rectangular crop area in pixels (Y). (required)
+        :param int width: The width of the rectangular crop area in pixels. (required)
+        :param int height: The height of the rectangular crop area in pixels. (required)
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.edit_crop_rectangle_with_http_info(left, top, width, height, image_file, **kwargs)  # noqa: E501
+        else:
+            (data) = self.edit_crop_rectangle_with_http_info(left, top, width, height, image_file, **kwargs)  # noqa: E501
+            return data
+
+    def edit_crop_rectangle_with_http_info(self, left, top, width, height, image_file, **kwargs):  # noqa: E501
+        """Crop an image to a rectangular area  # noqa: E501
+
+        Crop an image to a target rectangular area  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_crop_rectangle_with_http_info(left, top, width, height, image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int left: The left edge of the rectangular crop area in pixels (X). (required)
+        :param int top: The top edge of the rectangular crop area in pixels (Y). (required)
+        :param int width: The width of the rectangular crop area in pixels. (required)
+        :param int height: The height of the rectangular crop area in pixels. (required)
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['left', 'top', 'width', 'height', 'image_file']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method edit_crop_rectangle" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'left' is set
+        if ('left' not in params or
+                params['left'] is None):
+            raise ValueError("Missing the required parameter `left` when calling `edit_crop_rectangle`")  # noqa: E501
+        # verify the required parameter 'top' is set
+        if ('top' not in params or
+                params['top'] is None):
+            raise ValueError("Missing the required parameter `top` when calling `edit_crop_rectangle`")  # noqa: E501
+        # verify the required parameter 'width' is set
+        if ('width' not in params or
+                params['width'] is None):
+            raise ValueError("Missing the required parameter `width` when calling `edit_crop_rectangle`")  # noqa: E501
+        # verify the required parameter 'height' is set
+        if ('height' not in params or
+                params['height'] is None):
+            raise ValueError("Missing the required parameter `height` when calling `edit_crop_rectangle`")  # noqa: E501
+        # verify the required parameter 'image_file' is set
+        if ('image_file' not in params or
+                params['image_file'] is None):
+            raise ValueError("Missing the required parameter `image_file` when calling `edit_crop_rectangle`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'left' in params:
+            path_params['left'] = params['left']  # noqa: E501
+        if 'top' in params:
+            path_params['top'] = params['top']  # noqa: E501
+        if 'width' in params:
+            path_params['width'] = params['width']  # noqa: E501
+        if 'height' in params:
+            path_params['height'] = params['height']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'image_file' in params:
+            local_var_files['imageFile'] = params['image_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/octet-stream'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/edit/crop/rectangle/{left}/{top}/{width}/{height}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def edit_draw_polygon(self, request, **kwargs):  # noqa: E501
         """Draw a polygon onto an image  # noqa: E501
 
@@ -637,6 +768,137 @@ class EditApi(object):
 
         return self.api_client.call_api(
             '/image/edit/draw/text', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def edit_drop_shadow(self, x, y, sigma, opacity, image_file, **kwargs):  # noqa: E501
+        """Add a customizeable drop shadow to an image  # noqa: E501
+
+        Add a customizeable drop shadow to the image  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_drop_shadow(x, y, sigma, opacity, image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int x: (required)
+        :param int y: (required)
+        :param int sigma: Sigma (blur distance) of the drop shadow (required)
+        :param int opacity: Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.edit_drop_shadow_with_http_info(x, y, sigma, opacity, image_file, **kwargs)  # noqa: E501
+        else:
+            (data) = self.edit_drop_shadow_with_http_info(x, y, sigma, opacity, image_file, **kwargs)  # noqa: E501
+            return data
+
+    def edit_drop_shadow_with_http_info(self, x, y, sigma, opacity, image_file, **kwargs):  # noqa: E501
+        """Add a customizeable drop shadow to an image  # noqa: E501
+
+        Add a customizeable drop shadow to the image  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.edit_drop_shadow_with_http_info(x, y, sigma, opacity, image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param int x: (required)
+        :param int y: (required)
+        :param int sigma: Sigma (blur distance) of the drop shadow (required)
+        :param int opacity: Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['x', 'y', 'sigma', 'opacity', 'image_file']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method edit_drop_shadow" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'x' is set
+        if ('x' not in params or
+                params['x'] is None):
+            raise ValueError("Missing the required parameter `x` when calling `edit_drop_shadow`")  # noqa: E501
+        # verify the required parameter 'y' is set
+        if ('y' not in params or
+                params['y'] is None):
+            raise ValueError("Missing the required parameter `y` when calling `edit_drop_shadow`")  # noqa: E501
+        # verify the required parameter 'sigma' is set
+        if ('sigma' not in params or
+                params['sigma'] is None):
+            raise ValueError("Missing the required parameter `sigma` when calling `edit_drop_shadow`")  # noqa: E501
+        # verify the required parameter 'opacity' is set
+        if ('opacity' not in params or
+                params['opacity'] is None):
+            raise ValueError("Missing the required parameter `opacity` when calling `edit_drop_shadow`")  # noqa: E501
+        # verify the required parameter 'image_file' is set
+        if ('image_file' not in params or
+                params['image_file'] is None):
+            raise ValueError("Missing the required parameter `image_file` when calling `edit_drop_shadow`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'x' in params:
+            path_params['X'] = params['x']  # noqa: E501
+        if 'y' in params:
+            path_params['Y'] = params['y']  # noqa: E501
+        if 'sigma' in params:
+            path_params['sigma'] = params['sigma']  # noqa: E501
+        if 'opacity' in params:
+            path_params['opacity'] = params['opacity']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'image_file' in params:
+            local_var_files['imageFile'] = params['image_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/octet-stream'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity}', 'POST',
             path_params,
             query_params,
             header_params,

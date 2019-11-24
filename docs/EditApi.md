@@ -7,9 +7,11 @@ Method | HTTP request | Description
 [**edit_auto_orient**](EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**edit_composite_basic**](EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**edit_contrast_adaptive**](EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**edit_crop_rectangle**](EditApi.md#edit_crop_rectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 [**edit_draw_polygon**](EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**edit_draw_text**](EditApi.md#edit_draw_text) | **POST** /image/edit/draw/text | Draw text onto an image
+[**edit_drop_shadow**](EditApi.md#edit_drop_shadow) | **POST** /image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
 [**edit_rotate**](EditApi.md#edit_rotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
 
@@ -181,6 +183,68 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **edit_crop_rectangle**
+> str edit_crop_rectangle(left, top, width, height, image_file)
+
+Crop an image to a rectangular area
+
+Crop an image to a target rectangular area
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudmersive_image_api_client
+from cloudmersive_image_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: Apikey
+configuration = cloudmersive_image_api_client.Configuration()
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_client.ApiClient(configuration))
+left = 56 # int | The left edge of the rectangular crop area in pixels (X).
+top = 56 # int | The top edge of the rectangular crop area in pixels (Y).
+width = 56 # int | The width of the rectangular crop area in pixels.
+height = 56 # int | The height of the rectangular crop area in pixels.
+image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+try:
+    # Crop an image to a rectangular area
+    api_response = api_instance.edit_crop_rectangle(left, top, width, height, image_file)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EditApi->edit_crop_rectangle: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **left** | **int**| The left edge of the rectangular crop area in pixels (X). | 
+ **top** | **int**| The top edge of the rectangular crop area in pixels (Y). | 
+ **width** | **int**| The width of the rectangular crop area in pixels. | 
+ **height** | **int**| The height of the rectangular crop area in pixels. | 
+ **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **edit_draw_polygon**
 > str edit_draw_polygon(request)
 
@@ -340,6 +404,68 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: image/png
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **edit_drop_shadow**
+> str edit_drop_shadow(x, y, sigma, opacity, image_file)
+
+Add a customizeable drop shadow to an image
+
+Add a customizeable drop shadow to the image
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudmersive_image_api_client
+from cloudmersive_image_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: Apikey
+configuration = cloudmersive_image_api_client.Configuration()
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_client.ApiClient(configuration))
+x = 56 # int | 
+y = 56 # int | 
+sigma = 56 # int | Sigma (blur distance) of the drop shadow
+opacity = 56 # int | Opacity of the drop shadow; 0 is 0% and 100 is 100%
+image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+try:
+    # Add a customizeable drop shadow to an image
+    api_response = api_instance.edit_drop_shadow(x, y, sigma, opacity, image_file)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EditApi->edit_drop_shadow: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x** | **int**|  | 
+ **y** | **int**|  | 
+ **sigma** | **int**| Sigma (blur distance) of the drop shadow | 
+ **opacity** | **int**| Opacity of the drop shadow; 0 is 0% and 100 is 100% | 
+ **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

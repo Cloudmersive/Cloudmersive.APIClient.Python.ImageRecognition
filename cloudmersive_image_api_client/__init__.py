@@ -19,6 +19,7 @@ from __future__ import absolute_import
 from cloudmersive_image_api_client.api.artistic_api import ArtisticApi
 from cloudmersive_image_api_client.api.edit_api import EditApi
 from cloudmersive_image_api_client.api.face_api import FaceApi
+from cloudmersive_image_api_client.api.filter_api import FilterApi
 from cloudmersive_image_api_client.api.info_api import InfoApi
 from cloudmersive_image_api_client.api.nsfw_api import NsfwApi
 from cloudmersive_image_api_client.api.recognize_api import RecognizeApi
@@ -46,6 +47,7 @@ from cloudmersive_image_api_client.models.face_locate_with_landmarks_response im
 from cloudmersive_image_api_client.models.face_match import FaceMatch
 from cloudmersive_image_api_client.models.face_point import FacePoint
 from cloudmersive_image_api_client.models.face_with_landmarks import FaceWithLandmarks
+from cloudmersive_image_api_client.models.find_symbol_result import FindSymbolResult
 from cloudmersive_image_api_client.models.fine_text_detection_result import FineTextDetectionResult
 from cloudmersive_image_api_client.models.fine_text_item import FineTextItem
 from cloudmersive_image_api_client.models.gender_detection_result import GenderDetectionResult
