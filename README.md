@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 This Python package provides a native API client for [Cloudmersive Image Recognition and Processing](https://www.cloudmersive.com/image-recognition-and-processing-api)
 
 - API version: v1
-- Package version: 2.1.1
+- Package version: 2.1.2
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -78,9 +78,13 @@ All URIs are relative to *https://api.cloudmersive.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ArtisticApi* | [**artistic_painting**](docs/ArtisticApi.md#artistic_painting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
+*ConvertApi* | [**convert_to_bmp**](docs/ConvertApi.md#convert_to_bmp) | **POST** /image/convert/to/bmp | Convert input image to Bitmap BMP format
 *ConvertApi* | [**convert_to_gif**](docs/ConvertApi.md#convert_to_gif) | **POST** /image/convert/to/gif | Convert input image to GIF format
 *ConvertApi* | [**convert_to_jpg**](docs/ConvertApi.md#convert_to_jpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG/JPEG format
+*ConvertApi* | [**convert_to_photoshop**](docs/ConvertApi.md#convert_to_photoshop) | **POST** /image/convert/to/psd | Convert input image to Photoshop PSD format
 *ConvertApi* | [**convert_to_png**](docs/ConvertApi.md#convert_to_png) | **POST** /image/convert/to/png | Convert input image to PNG format
+*ConvertApi* | [**convert_to_tiff**](docs/ConvertApi.md#convert_to_tiff) | **POST** /image/convert/to/tiff | Convert input image to TIFF format
+*ConvertApi* | [**convert_to_web_p**](docs/ConvertApi.md#convert_to_web_p) | **POST** /image/convert/to/webp | Convert input image to WebP format
 *EditApi* | [**edit_auto_orient**](docs/EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 *EditApi* | [**edit_composite_basic**](docs/EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
 *EditApi* | [**edit_contrast_adaptive**](docs/EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
@@ -106,6 +110,7 @@ Class | Method | HTTP request | Description
 *FilterApi* | [**filter_posterize**](docs/FilterApi.md#filter_posterize) | **POST** /image/filter/posterize | Posterize the image by reducing distinct colors
 *FilterApi* | [**filter_swirl**](docs/FilterApi.md#filter_swirl) | **POST** /image/filter/swirl | Swirl distort the image
 *InfoApi* | [**info_get_dominant_color**](docs/InfoApi.md#info_get_dominant_color) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
+*InfoApi* | [**info_get_metadata**](docs/InfoApi.md#info_get_metadata) | **POST** /image/get-info/metadata | Returns the image metadata, including EXIF and resolution
 *NsfwApi* | [**nsfw_classify**](docs/NsfwApi.md#nsfw_classify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
 *RecognizeApi* | [**recognize_describe**](docs/RecognizeApi.md#recognize_describe) | **POST** /image/recognize/describe | Describe an image in natural language
 *RecognizeApi* | [**recognize_detect_and_unskew_document**](docs/RecognizeApi.md#recognize_detect_and_unskew_document) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
@@ -144,6 +149,8 @@ Class | Method | HTTP request | Description
  - [FineTextItem](docs/FineTextItem.md)
  - [GenderDetectionResult](docs/GenderDetectionResult.md)
  - [ImageDescriptionResponse](docs/ImageDescriptionResponse.md)
+ - [ImageMetadata](docs/ImageMetadata.md)
+ - [ImageMetadataExifValue](docs/ImageMetadataExifValue.md)
  - [NsfwResult](docs/NsfwResult.md)
  - [ObjectDetectionResult](docs/ObjectDetectionResult.md)
  - [PersonWithAge](docs/PersonWithAge.md)
