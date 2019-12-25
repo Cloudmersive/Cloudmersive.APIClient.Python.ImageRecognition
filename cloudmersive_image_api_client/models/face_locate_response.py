@@ -33,57 +33,36 @@ class FaceLocateResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'error_details': 'str',
         'successful': 'bool',
         'faces': 'list[Face]',
-        'face_count': 'int'
+        'face_count': 'int',
+        'error_details': 'str'
     }
 
     attribute_map = {
-        'error_details': 'ErrorDetails',
         'successful': 'Successful',
         'faces': 'Faces',
-        'face_count': 'FaceCount'
+        'face_count': 'FaceCount',
+        'error_details': 'ErrorDetails'
     }
 
-    def __init__(self, error_details=None, successful=None, faces=None, face_count=None):  # noqa: E501
+    def __init__(self, successful=None, faces=None, face_count=None, error_details=None):  # noqa: E501
         """FaceLocateResponse - a model defined in Swagger"""  # noqa: E501
 
-        self._error_details = None
         self._successful = None
         self._faces = None
         self._face_count = None
+        self._error_details = None
         self.discriminator = None
 
-        if error_details is not None:
-            self.error_details = error_details
         if successful is not None:
             self.successful = successful
         if faces is not None:
             self.faces = faces
         if face_count is not None:
             self.face_count = face_count
-
-    @property
-    def error_details(self):
-        """Gets the error_details of this FaceLocateResponse.  # noqa: E501
-
-
-        :return: The error_details of this FaceLocateResponse.  # noqa: E501
-        :rtype: str
-        """
-        return self._error_details
-
-    @error_details.setter
-    def error_details(self, error_details):
-        """Sets the error_details of this FaceLocateResponse.
-
-
-        :param error_details: The error_details of this FaceLocateResponse.  # noqa: E501
-        :type: str
-        """
-
-        self._error_details = error_details
+        if error_details is not None:
+            self.error_details = error_details
 
     @property
     def successful(self):
@@ -153,6 +132,29 @@ class FaceLocateResponse(object):
         """
 
         self._face_count = face_count
+
+    @property
+    def error_details(self):
+        """Gets the error_details of this FaceLocateResponse.  # noqa: E501
+
+        Details of any errors that occurred  # noqa: E501
+
+        :return: The error_details of this FaceLocateResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_details
+
+    @error_details.setter
+    def error_details(self, error_details):
+        """Sets the error_details of this FaceLocateResponse.
+
+        Details of any errors that occurred  # noqa: E501
+
+        :param error_details: The error_details of this FaceLocateResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._error_details = error_details
 
     def to_dict(self):
         """Returns the model properties as a dict"""

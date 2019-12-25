@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**filter_black_and_white**](FilterApi.md#filter_black_and_white) | **POST** /image/filter/black-and-white | Convert image to black-and-white grayscale
-[**filter_despeckle**](FilterApi.md#filter_despeckle) | **POST** /image/filter/despeckle | Despeckle (remove point noise) from the image
+[**filter_despeckle**](FilterApi.md#filter_despeckle) | **POST** /image/filter/despeckle | Despeckle to remove point noise from the image
 [**filter_edge_detect**](FilterApi.md#filter_edge_detect) | **POST** /image/filter/edge-detect/{radius} | Detect and highlight edges in an image
 [**filter_emboss**](FilterApi.md#filter_emboss) | **POST** /image/filter/emboss/{radius}/{sigma} | Emboss an image
 [**filter_gaussian_blur**](FilterApi.md#filter_gaussian_blur) | **POST** /image/filter/blur/guassian/{radius}/{sigma} | Perform a guassian blur on the input image
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 # **filter_despeckle**
 > str filter_despeckle(image_file)
 
-Despeckle (remove point noise) from the image
+Despeckle to remove point noise from the image
 
 Remove point noise / despeckle the input image
 
@@ -94,7 +94,7 @@ api_instance = cloudmersive_image_api_client.FilterApi(cloudmersive_image_api_cl
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Despeckle (remove point noise) from the image
+    # Despeckle to remove point noise from the image
     api_response = api_instance.filter_despeckle(image_file)
     pprint(api_response)
 except ApiException as e:

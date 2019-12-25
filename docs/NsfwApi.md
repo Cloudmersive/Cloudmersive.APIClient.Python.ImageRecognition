@@ -4,13 +4,13 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**nsfw_classify**](NsfwApi.md#nsfw_classify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
+[**nsfw_classify**](NsfwApi.md#nsfw_classify) | **POST** /image/nsfw/classify | Not safe for work NSFW racy content classification
 
 
 # **nsfw_classify**
 > NsfwResult nsfw_classify(image_file)
 
-Not safe for work (NSFW) racy content classification
+Not safe for work NSFW racy content classification
 
 Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
 
@@ -33,7 +33,7 @@ api_instance = cloudmersive_image_api_client.NsfwApi(cloudmersive_image_api_clie
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Not safe for work (NSFW) racy content classification
+    # Not safe for work NSFW racy content classification
     api_response = api_instance.nsfw_classify(image_file)
     pprint(api_response)
 except ApiException as e:

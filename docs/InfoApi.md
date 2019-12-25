@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**info_get_dominant_color**](InfoApi.md#info_get_dominant_color) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
-[**info_get_metadata**](InfoApi.md#info_get_metadata) | **POST** /image/get-info/metadata | Returns the image metadata, including EXIF and resolution
+[**info_get_metadata**](InfoApi.md#info_get_metadata) | **POST** /image/get-info/metadata | Returns the image metadata including EXIF and resolution
 
 
 # **info_get_dominant_color**
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 # **info_get_metadata**
 > ImageMetadata info_get_metadata(image_file)
 
-Returns the image metadata, including EXIF and resolution
+Returns the image metadata including EXIF and resolution
 
 Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
 
@@ -88,7 +88,7 @@ api_instance = cloudmersive_image_api_client.InfoApi(cloudmersive_image_api_clie
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Returns the image metadata, including EXIF and resolution
+    # Returns the image metadata including EXIF and resolution
     api_response = api_instance.info_get_metadata(image_file)
     pprint(api_response)
 except ApiException as e:

@@ -123,7 +123,7 @@ class ResizeApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['image/png'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -158,8 +158,8 @@ class ResizeApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int width: (required)
-        :param int height: (required)
+        :param int width: Width of the output image - final image will be exactly this width (required)
+        :param int height: Height of the output image - final image will be exactly this height (required)
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: str
                  If the method is called asynchronously,
@@ -182,8 +182,8 @@ class ResizeApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int width: (required)
-        :param int height: (required)
+        :param int width: Width of the output image - final image will be exactly this width (required)
+        :param int height: Height of the output image - final image will be exactly this height (required)
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
         :return: str
                  If the method is called asynchronously,
@@ -238,7 +238,7 @@ class ResizeApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['image/png'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501

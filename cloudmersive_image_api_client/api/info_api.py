@@ -133,7 +133,7 @@ class InfoApi(object):
             collection_formats=collection_formats)
 
     def info_get_metadata(self, image_file, **kwargs):  # noqa: E501
-        """Returns the image metadata, including EXIF and resolution  # noqa: E501
+        """Returns the image metadata including EXIF and resolution  # noqa: E501
 
         Returns the metadata information on the image, including file type, EXIF (if available), and resolution.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -155,7 +155,7 @@ class InfoApi(object):
             return data
 
     def info_get_metadata_with_http_info(self, image_file, **kwargs):  # noqa: E501
-        """Returns the image metadata, including EXIF and resolution  # noqa: E501
+        """Returns the image metadata including EXIF and resolution  # noqa: E501
 
         Returns the metadata information on the image, including file type, EXIF (if available), and resolution.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

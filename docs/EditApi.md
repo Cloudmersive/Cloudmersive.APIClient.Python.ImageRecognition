@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -269,7 +269,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_client.ApiClient(configuration))
-request = cloudmersive_image_api_client.DrawPolygonRequest() # DrawPolygonRequest | 
+request = cloudmersive_image_api_client.DrawPolygonRequest() # DrawPolygonRequest | Polygon drawing request parameters
 
 try:
     # Draw a polygon onto an image
@@ -283,7 +283,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawPolygonRequest**](DrawPolygonRequest.md)|  | 
+ **request** | [**DrawPolygonRequest**](DrawPolygonRequest.md)| Polygon drawing request parameters | 
 
 ### Return type
 
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -323,7 +323,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_client.ApiClient(configuration))
-request = cloudmersive_image_api_client.DrawRectangleRequest() # DrawRectangleRequest | 
+request = cloudmersive_image_api_client.DrawRectangleRequest() # DrawRectangleRequest | Draw rectangle parameters
 
 try:
     # Draw a rectangle onto an image
@@ -337,7 +337,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawRectangleRequest**](DrawRectangleRequest.md)|  | 
+ **request** | [**DrawRectangleRequest**](DrawRectangleRequest.md)| Draw rectangle parameters | 
 
 ### Return type
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -377,7 +377,7 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_client.ApiClient(configuration))
-request = cloudmersive_image_api_client.DrawTextRequest() # DrawTextRequest | 
+request = cloudmersive_image_api_client.DrawTextRequest() # DrawTextRequest | Draw text parameters
 
 try:
     # Draw text onto an image
@@ -391,7 +391,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawTextRequest**](DrawTextRequest.md)|  | 
+ **request** | [**DrawTextRequest**](DrawTextRequest.md)| Draw text parameters | 
 
 ### Return type
 
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -431,8 +431,8 @@ configuration.api_key['Apikey'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_client.ApiClient(configuration))
-x = 56 # int | 
-y = 56 # int | 
+x = 56 # int | Horizontal (X) offset of the drop shadow
+y = 56 # int | Vertical (Y) offset of the drop shadow
 sigma = 56 # int | Sigma (blur distance) of the drop shadow
 opacity = 56 # int | Opacity of the drop shadow; 0 is 0% and 100 is 100%
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
@@ -449,8 +449,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x** | **int**|  | 
- **y** | **int**|  | 
+ **x** | **int**| Horizontal (X) offset of the drop shadow | 
+ **y** | **int**| Vertical (Y) offset of the drop shadow | 
  **sigma** | **int**| Sigma (blur distance) of the drop shadow | 
  **opacity** | **int**| Opacity of the drop shadow; 0 is 0% and 100 is 100% | 
  **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 

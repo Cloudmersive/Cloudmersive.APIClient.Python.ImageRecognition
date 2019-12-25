@@ -236,7 +236,7 @@ class RecognizeApi(object):
             collection_formats=collection_formats)
 
     def recognize_detect_objects(self, image_file, **kwargs):  # noqa: E501
-        """Detect objects, including types and locations, in an image  # noqa: E501
+        """Detect objects including types and locations in an image  # noqa: E501
 
         Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -258,7 +258,7 @@ class RecognizeApi(object):
             return data
 
     def recognize_detect_objects_with_http_info(self, image_file, **kwargs):  # noqa: E501
-        """Detect objects, including types and locations, in an image  # noqa: E501
+        """Detect objects including types and locations in an image  # noqa: E501
 
         Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -335,7 +335,7 @@ class RecognizeApi(object):
             collection_formats=collection_formats)
 
     def recognize_detect_people(self, image_file, **kwargs):  # noqa: E501
-        """Detect people, including locations, in an image  # noqa: E501
+        """Detect people including locations in an image  # noqa: E501
 
         Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -357,7 +357,7 @@ class RecognizeApi(object):
             return data
 
     def recognize_detect_people_with_http_info(self, image_file, **kwargs):  # noqa: E501
-        """Detect people, including locations, in an image  # noqa: E501
+        """Detect people including locations in an image  # noqa: E501
 
         Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

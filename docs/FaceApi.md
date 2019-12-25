@@ -5,12 +5,12 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**face_compare**](FaceApi.md#face_compare) | **POST** /image/face/compare-and-match | Compare and match faces
-[**face_crop_first**](FaceApi.md#face_crop_first) | **POST** /image/face/crop/first | Crop image to face (square)
-[**face_crop_first_round**](FaceApi.md#face_crop_first_round) | **POST** /image/face/crop/first/round | Crop image to face (round)
+[**face_crop_first**](FaceApi.md#face_crop_first) | **POST** /image/face/crop/first | Crop image to face with square crop
+[**face_crop_first_round**](FaceApi.md#face_crop_first_round) | **POST** /image/face/crop/first/round | Crop image to face with round crop
 [**face_detect_age**](FaceApi.md#face_detect_age) | **POST** /image/face/detect-age | Detect the age of people in an image
 [**face_detect_gender**](FaceApi.md#face_detect_gender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
-[**face_locate**](FaceApi.md#face_locate) | **POST** /image/face/locate | Find faces in an image
-[**face_locate_with_landmarks**](FaceApi.md#face_locate_with_landmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+[**face_locate**](FaceApi.md#face_locate) | **POST** /image/face/locate | Detect and find faces in an image
+[**face_locate_with_landmarks**](FaceApi.md#face_locate_with_landmarks) | **POST** /image/face/locate-with-landmarks | Detect and find faces and landmarks eyes and nose and mouth in image
 
 
 # **face_compare**
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 # **face_crop_first**
 > str face_crop_first(image_file)
 
-Crop image to face (square)
+Crop image to face with square crop
 
 Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.
 
@@ -95,7 +95,7 @@ api_instance = cloudmersive_image_api_client.FaceApi(cloudmersive_image_api_clie
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Crop image to face (square)
+    # Crop image to face with square crop
     api_response = api_instance.face_crop_first(image_file)
     pprint(api_response)
 except ApiException as e:
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 # **face_crop_first_round**
 > str face_crop_first_round(image_file)
 
-Crop image to face (round)
+Crop image to face with round crop
 
 Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.
 
@@ -149,7 +149,7 @@ api_instance = cloudmersive_image_api_client.FaceApi(cloudmersive_image_api_clie
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Crop image to face (round)
+    # Crop image to face with round crop
     api_response = api_instance.face_crop_first_round(image_file)
     pprint(api_response)
 except ApiException as e:
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 # **face_locate**
 > FaceLocateResponse face_locate(image_file)
 
-Find faces in an image
+Detect and find faces in an image
 
 Locate the positions of all faces in an image
 
@@ -311,7 +311,7 @@ api_instance = cloudmersive_image_api_client.FaceApi(cloudmersive_image_api_clie
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Find faces in an image
+    # Detect and find faces in an image
     api_response = api_instance.face_locate(image_file)
     pprint(api_response)
 except ApiException as e:
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 # **face_locate_with_landmarks**
 > FaceLocateWithLandmarksResponse face_locate_with_landmarks(image_file)
 
-Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+Detect and find faces and landmarks eyes and nose and mouth in image
 
 Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
 
@@ -365,7 +365,7 @@ api_instance = cloudmersive_image_api_client.FaceApi(cloudmersive_image_api_clie
 image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try:
-    # Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+    # Detect and find faces and landmarks eyes and nose and mouth in image
     api_response = api_instance.face_locate_with_landmarks(image_file)
     pprint(api_response)
 except ApiException as e:

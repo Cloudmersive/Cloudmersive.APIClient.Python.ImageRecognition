@@ -34,10 +34,12 @@ class ImageMetadata(object):
     """
     swagger_types = {
         'successful': 'bool',
+        'is_valid_image': 'bool',
         'file_format': 'str',
         'width': 'int',
         'height': 'int',
         'bit_depth': 'int',
+        'has_transparency': 'bool',
         'color_space': 'str',
         'exif_profile_name': 'str',
         'exif_values': 'list[ImageMetadataExifValue]'
@@ -45,23 +47,27 @@ class ImageMetadata(object):
 
     attribute_map = {
         'successful': 'Successful',
+        'is_valid_image': 'IsValidImage',
         'file_format': 'FileFormat',
         'width': 'Width',
         'height': 'Height',
         'bit_depth': 'BitDepth',
+        'has_transparency': 'HasTransparency',
         'color_space': 'ColorSpace',
         'exif_profile_name': 'ExifProfileName',
         'exif_values': 'ExifValues'
     }
 
-    def __init__(self, successful=None, file_format=None, width=None, height=None, bit_depth=None, color_space=None, exif_profile_name=None, exif_values=None):  # noqa: E501
+    def __init__(self, successful=None, is_valid_image=None, file_format=None, width=None, height=None, bit_depth=None, has_transparency=None, color_space=None, exif_profile_name=None, exif_values=None):  # noqa: E501
         """ImageMetadata - a model defined in Swagger"""  # noqa: E501
 
         self._successful = None
+        self._is_valid_image = None
         self._file_format = None
         self._width = None
         self._height = None
         self._bit_depth = None
+        self._has_transparency = None
         self._color_space = None
         self._exif_profile_name = None
         self._exif_values = None
@@ -69,6 +75,8 @@ class ImageMetadata(object):
 
         if successful is not None:
             self.successful = successful
+        if is_valid_image is not None:
+            self.is_valid_image = is_valid_image
         if file_format is not None:
             self.file_format = file_format
         if width is not None:
@@ -77,6 +85,8 @@ class ImageMetadata(object):
             self.height = height
         if bit_depth is not None:
             self.bit_depth = bit_depth
+        if has_transparency is not None:
+            self.has_transparency = has_transparency
         if color_space is not None:
             self.color_space = color_space
         if exif_profile_name is not None:
@@ -106,6 +116,29 @@ class ImageMetadata(object):
         """
 
         self._successful = successful
+
+    @property
+    def is_valid_image(self):
+        """Gets the is_valid_image of this ImageMetadata.  # noqa: E501
+
+        True if the input image is a valid image file, false otherwise  # noqa: E501
+
+        :return: The is_valid_image of this ImageMetadata.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_valid_image
+
+    @is_valid_image.setter
+    def is_valid_image(self, is_valid_image):
+        """Sets the is_valid_image of this ImageMetadata.
+
+        True if the input image is a valid image file, false otherwise  # noqa: E501
+
+        :param is_valid_image: The is_valid_image of this ImageMetadata.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_valid_image = is_valid_image
 
     @property
     def file_format(self):
@@ -198,6 +231,29 @@ class ImageMetadata(object):
         """
 
         self._bit_depth = bit_depth
+
+    @property
+    def has_transparency(self):
+        """Gets the has_transparency of this ImageMetadata.  # noqa: E501
+
+        True if the image has transaprency in the form of an alpha channel, false otherwise  # noqa: E501
+
+        :return: The has_transparency of this ImageMetadata.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_transparency
+
+    @has_transparency.setter
+    def has_transparency(self, has_transparency):
+        """Sets the has_transparency of this ImageMetadata.
+
+        True if the image has transaprency in the form of an alpha channel, false otherwise  # noqa: E501
+
+        :param has_transparency: The has_transparency of this ImageMetadata.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_transparency = has_transparency
 
     @property
     def color_space(self):

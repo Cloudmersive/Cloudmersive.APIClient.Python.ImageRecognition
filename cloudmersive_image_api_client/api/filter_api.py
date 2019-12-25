@@ -133,7 +133,7 @@ class FilterApi(object):
             collection_formats=collection_formats)
 
     def filter_despeckle(self, image_file, **kwargs):  # noqa: E501
-        """Despeckle (remove point noise) from the image  # noqa: E501
+        """Despeckle to remove point noise from the image  # noqa: E501
 
         Remove point noise / despeckle the input image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -155,7 +155,7 @@ class FilterApi(object):
             return data
 
     def filter_despeckle_with_http_info(self, image_file, **kwargs):  # noqa: E501
-        """Despeckle (remove point noise) from the image  # noqa: E501
+        """Despeckle to remove point noise from the image  # noqa: E501
 
         Remove point noise / despeckle the input image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

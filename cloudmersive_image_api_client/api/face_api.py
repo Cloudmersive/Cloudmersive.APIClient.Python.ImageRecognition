@@ -141,7 +141,7 @@ class FaceApi(object):
             collection_formats=collection_formats)
 
     def face_crop_first(self, image_file, **kwargs):  # noqa: E501
-        """Crop image to face (square)  # noqa: E501
+        """Crop image to face with square crop  # noqa: E501
 
         Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -163,7 +163,7 @@ class FaceApi(object):
             return data
 
     def face_crop_first_with_http_info(self, image_file, **kwargs):  # noqa: E501
-        """Crop image to face (square)  # noqa: E501
+        """Crop image to face with square crop  # noqa: E501
 
         Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -240,7 +240,7 @@ class FaceApi(object):
             collection_formats=collection_formats)
 
     def face_crop_first_round(self, image_file, **kwargs):  # noqa: E501
-        """Crop image to face (round)  # noqa: E501
+        """Crop image to face with round crop  # noqa: E501
 
         Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -262,7 +262,7 @@ class FaceApi(object):
             return data
 
     def face_crop_first_round_with_http_info(self, image_file, **kwargs):  # noqa: E501
-        """Crop image to face (round)  # noqa: E501
+        """Crop image to face with round crop  # noqa: E501
 
         Crop an image to the face (circular/round crop).  If there is more than one face present, choose the first one.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -537,7 +537,7 @@ class FaceApi(object):
             collection_formats=collection_formats)
 
     def face_locate(self, image_file, **kwargs):  # noqa: E501
-        """Find faces in an image  # noqa: E501
+        """Detect and find faces in an image  # noqa: E501
 
         Locate the positions of all faces in an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -559,7 +559,7 @@ class FaceApi(object):
             return data
 
     def face_locate_with_http_info(self, image_file, **kwargs):  # noqa: E501
-        """Find faces in an image  # noqa: E501
+        """Detect and find faces in an image  # noqa: E501
 
         Locate the positions of all faces in an image  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -636,7 +636,7 @@ class FaceApi(object):
             collection_formats=collection_formats)
 
     def face_locate_with_landmarks(self, image_file, **kwargs):  # noqa: E501
-        """Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image  # noqa: E501
+        """Detect and find faces and landmarks eyes and nose and mouth in image  # noqa: E501
 
         Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -658,7 +658,7 @@ class FaceApi(object):
             return data
 
     def face_locate_with_landmarks_with_http_info(self, image_file, **kwargs):  # noqa: E501
-        """Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image  # noqa: E501
+        """Detect and find faces and landmarks eyes and nose and mouth in image  # noqa: E501
 
         Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

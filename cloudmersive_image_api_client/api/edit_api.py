@@ -222,7 +222,7 @@ class EditApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['image/png'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -329,7 +329,7 @@ class EditApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['image/png'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -495,7 +495,7 @@ class EditApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param DrawPolygonRequest request: (required)
+        :param DrawPolygonRequest request: Polygon drawing request parameters (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -517,7 +517,7 @@ class EditApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param DrawPolygonRequest request: (required)
+        :param DrawPolygonRequest request: Polygon drawing request parameters (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -559,7 +559,7 @@ class EditApi(object):
             body_params = params['request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['image/png'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -594,7 +594,7 @@ class EditApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param DrawRectangleRequest request: (required)
+        :param DrawRectangleRequest request: Draw rectangle parameters (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -616,7 +616,7 @@ class EditApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param DrawRectangleRequest request: (required)
+        :param DrawRectangleRequest request: Draw rectangle parameters (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -658,7 +658,7 @@ class EditApi(object):
             body_params = params['request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['image/png'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -693,7 +693,7 @@ class EditApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param DrawTextRequest request: (required)
+        :param DrawTextRequest request: Draw text parameters (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -715,7 +715,7 @@ class EditApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param DrawTextRequest request: (required)
+        :param DrawTextRequest request: Draw text parameters (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -757,7 +757,7 @@ class EditApi(object):
             body_params = params['request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['image/png'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -792,8 +792,8 @@ class EditApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int x: (required)
-        :param int y: (required)
+        :param int x: Horizontal (X) offset of the drop shadow (required)
+        :param int y: Vertical (Y) offset of the drop shadow (required)
         :param int sigma: Sigma (blur distance) of the drop shadow (required)
         :param int opacity: Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -818,8 +818,8 @@ class EditApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param int x: (required)
-        :param int y: (required)
+        :param int x: Horizontal (X) offset of the drop shadow (required)
+        :param int y: Vertical (Y) offset of the drop shadow (required)
         :param int sigma: Sigma (blur distance) of the drop shadow (required)
         :param int opacity: Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
