@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 This Python package provides a native API client for [Cloudmersive Image Recognition and Processing](https://www.cloudmersive.com/image-recognition-and-processing-api)
 
 - API version: v1
-- Package version: 2.1.4
+- Package version: 2.1.5
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -93,6 +93,8 @@ Class | Method | HTTP request | Description
 *EditApi* | [**edit_draw_rectangle**](docs/EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 *EditApi* | [**edit_draw_text**](docs/EditApi.md#edit_draw_text) | **POST** /image/edit/draw/text | Draw text onto an image
 *EditApi* | [**edit_drop_shadow**](docs/EditApi.md#edit_drop_shadow) | **POST** /image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
+*EditApi* | [**edit_invert**](docs/EditApi.md#edit_invert) | **POST** /image/edit/invert | Invert, negate the colors in the image
+*EditApi* | [**edit_remove_exif_data**](docs/EditApi.md#edit_remove_exif_data) | **POST** /image/edit/remove-exif | Remove EXIF data from the image
 *EditApi* | [**edit_remove_transparency**](docs/EditApi.md#edit_remove_transparency) | **POST** /image/edit/remove-transparency | Remove transparency from the image
 *EditApi* | [**edit_rotate**](docs/EditApi.md#edit_rotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 *FaceApi* | [**face_compare**](docs/FaceApi.md#face_compare) | **POST** /image/face/compare-and-match | Compare and match faces
