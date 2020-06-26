@@ -109,7 +109,7 @@ class DrawTextInstance(object):
     def font_family_name(self):
         """Gets the font_family_name of this DrawTextInstance.  # noqa: E501
 
-        Font Family to use.  Leave blank to default to \"Arial\".  # noqa: E501
+        Font Family to use.  Leave blank to default to \"Arial\".  Supported fonts including Arial, Calibri, Cambria, Candara, Consolas, Constantia, Corbel, Courier New, Courier Regular, Georgia, Impact Regular, Lucida, Modern Regular, Tahoma, Times New Roman, Verdana  # noqa: E501
 
         :return: The font_family_name of this DrawTextInstance.  # noqa: E501
         :rtype: str
@@ -120,7 +120,7 @@ class DrawTextInstance(object):
     def font_family_name(self, font_family_name):
         """Sets the font_family_name of this DrawTextInstance.
 
-        Font Family to use.  Leave blank to default to \"Arial\".  # noqa: E501
+        Font Family to use.  Leave blank to default to \"Arial\".  Supported fonts including Arial, Calibri, Cambria, Candara, Consolas, Constantia, Corbel, Courier New, Courier Regular, Georgia, Impact Regular, Lucida, Modern Regular, Tahoma, Times New Roman, Verdana  # noqa: E501
 
         :param font_family_name: The font_family_name of this DrawTextInstance.  # noqa: E501
         :type: str

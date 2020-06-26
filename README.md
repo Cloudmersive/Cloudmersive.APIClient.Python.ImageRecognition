@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 This Python package provides a native API client for [Cloudmersive Image Recognition and Processing](https://www.cloudmersive.com/image-recognition-and-processing-api)
 
 - API version: v1
-- Package version: 2.1.5
+- Package version: 3.0.1
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.

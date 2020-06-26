@@ -634,7 +634,7 @@ class RecognizeApi(object):
     def recognize_detect_vehicle_license_plates(self, image_file, **kwargs):  # noqa: E501
         """Detect vehicle license plates in an image  # noqa: E501
 
-        Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  # noqa: E501
+        Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  Supported image formats are JPG, PNG and BMP.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.recognize_detect_vehicle_license_plates(image_file, async_req=True)
@@ -656,7 +656,7 @@ class RecognizeApi(object):
     def recognize_detect_vehicle_license_plates_with_http_info(self, image_file, **kwargs):  # noqa: E501
         """Detect vehicle license plates in an image  # noqa: E501
 
-        Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  # noqa: E501
+        Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  Supported image formats are JPG, PNG and BMP.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.recognize_detect_vehicle_license_plates_with_http_info(image_file, async_req=True)

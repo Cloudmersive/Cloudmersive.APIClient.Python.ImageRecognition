@@ -36,7 +36,7 @@ class ResizeApi(object):
     def resize_post(self, max_width, max_height, image_file, **kwargs):  # noqa: E501
         """Resize an image while preserving aspect ratio  # noqa: E501
 
-        Resize an image to a maximum width and maximum height, while preserving the image's original aspect ratio  # noqa: E501
+        Resize an image to a maximum width and maximum height, while preserving the image's original aspect ratio.  Resize is EXIF-aware.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.resize_post(max_width, max_height, image_file, async_req=True)
@@ -60,7 +60,7 @@ class ResizeApi(object):
     def resize_post_with_http_info(self, max_width, max_height, image_file, **kwargs):  # noqa: E501
         """Resize an image while preserving aspect ratio  # noqa: E501
 
-        Resize an image to a maximum width and maximum height, while preserving the image's original aspect ratio  # noqa: E501
+        Resize an image to a maximum width and maximum height, while preserving the image's original aspect ratio.  Resize is EXIF-aware.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.resize_post_with_http_info(max_width, max_height, image_file, async_req=True)
@@ -151,7 +151,7 @@ class ResizeApi(object):
     def resize_resize_simple(self, width, height, image_file, **kwargs):  # noqa: E501
         """Resize an image  # noqa: E501
 
-        Resize an image to a specific width and specific height  # noqa: E501
+        Resize an image to a specific width and specific height.  Resize is EXIF-aware.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.resize_resize_simple(width, height, image_file, async_req=True)
@@ -175,7 +175,7 @@ class ResizeApi(object):
     def resize_resize_simple_with_http_info(self, width, height, image_file, **kwargs):  # noqa: E501
         """Resize an image  # noqa: E501
 
-        Resize an image to a specific width and specific height  # noqa: E501
+        Resize an image to a specific width and specific height.  Resize is EXIF-aware.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.resize_resize_simple_with_http_info(width, height, image_file, async_req=True)
