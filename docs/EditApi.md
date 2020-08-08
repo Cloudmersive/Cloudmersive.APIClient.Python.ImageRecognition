@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**edit_auto_orient**](EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**edit_composite_basic**](EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
+[**edit_composite_precise**](EditApi.md#edit_composite_precise) | **POST** /image/edit/composite/precise | Composite two images together precisely
 [**edit_contrast_adaptive**](EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**edit_crop_circle**](EditApi.md#edit_crop_circle) | **POST** /image/edit/crop/circle/{left}/{top}/{radius} | Crop an image to an circular area
 [**edit_crop_rectangle**](EditApi.md#edit_crop_rectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 [**edit_draw_polygon**](EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
@@ -130,6 +132,74 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **edit_composite_precise**
+> str edit_composite_precise(base_image, layered_image, top=top, bottom=bottom, left=left, right=right, width=width, height=height)
+
+Composite two images together precisely
+
+Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudmersive_image_api_client
+from cloudmersive_image_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: Apikey
+configuration = cloudmersive_image_api_client.Configuration()
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_client.ApiClient(configuration))
+base_image = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+layered_image = '/path/to/file.txt' # file | Image to layer on top of the base image.
+top = 56 # int | Optional; Desired distance in pixels from the top of the base image to the top of the layered image. (optional)
+bottom = 56 # int | Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. (optional)
+left = 56 # int | Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. (optional)
+right = 56 # int | Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. (optional)
+width = 56 # int | Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. (optional)
+height = 56 # int | Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. (optional)
+
+try:
+    # Composite two images together precisely
+    api_response = api_instance.edit_composite_precise(base_image, layered_image, top=top, bottom=bottom, left=left, right=right, width=width, height=height)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EditApi->edit_composite_precise: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **base_image** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+ **layered_image** | **file**| Image to layer on top of the base image. | 
+ **top** | **int**| Optional; Desired distance in pixels from the top of the base image to the top of the layered image. | [optional] 
+ **bottom** | **int**| Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. | [optional] 
+ **left** | **int**| Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. | [optional] 
+ **right** | **int**| Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. | [optional] 
+ **width** | **int**| Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. | [optional] 
+ **height** | **int**| Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. | [optional] 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **edit_contrast_adaptive**
 > str edit_contrast_adaptive(gamma, image_file)
 
@@ -169,6 +239,66 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gamma** | **float**| Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. | 
+ **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **edit_crop_circle**
+> str edit_crop_circle(left, top, radius, image_file)
+
+Crop an image to an circular area
+
+Crop an image to a target circular area
+
+### Example
+```python
+from __future__ import print_function
+import time
+import cloudmersive_image_api_client
+from cloudmersive_image_api_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: Apikey
+configuration = cloudmersive_image_api_client.Configuration()
+configuration.api_key['Apikey'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Apikey'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = cloudmersive_image_api_client.EditApi(cloudmersive_image_api_client.ApiClient(configuration))
+left = 56 # int | The left edge of the circular crop area in pixels (X).
+top = 56 # int | The top edge of the circular crop area in pixels (Y).
+radius = 56 # int | The radius of the circular crop area in pixels.
+image_file = '/path/to/file.txt' # file | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+try:
+    # Crop an image to an circular area
+    api_response = api_instance.edit_crop_circle(left, top, radius, image_file)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling EditApi->edit_crop_circle: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **left** | **int**| The left edge of the circular crop area in pixels (X). | 
+ **top** | **int**| The top edge of the circular crop area in pixels (Y). | 
+ **radius** | **int**| The radius of the circular crop area in pixels. | 
  **image_file** | **file**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type

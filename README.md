@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 This Python package provides a native API client for [Cloudmersive Image Recognition and Processing](https://www.cloudmersive.com/image-recognition-and-processing-api)
 
 - API version: v1
-- Package version: 3.0.1
+- Package version: 3.0.2
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -87,7 +87,9 @@ Class | Method | HTTP request | Description
 *ConvertApi* | [**convert_to_web_p**](docs/ConvertApi.md#convert_to_web_p) | **POST** /image/convert/to/webp | Convert input image to WebP format
 *EditApi* | [**edit_auto_orient**](docs/EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 *EditApi* | [**edit_composite_basic**](docs/EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
+*EditApi* | [**edit_composite_precise**](docs/EditApi.md#edit_composite_precise) | **POST** /image/edit/composite/precise | Composite two images together precisely
 *EditApi* | [**edit_contrast_adaptive**](docs/EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+*EditApi* | [**edit_crop_circle**](docs/EditApi.md#edit_crop_circle) | **POST** /image/edit/crop/circle/{left}/{top}/{radius} | Crop an image to an circular area
 *EditApi* | [**edit_crop_rectangle**](docs/EditApi.md#edit_crop_rectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 *EditApi* | [**edit_draw_polygon**](docs/EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 *EditApi* | [**edit_draw_rectangle**](docs/EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
