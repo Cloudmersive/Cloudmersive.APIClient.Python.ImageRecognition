@@ -25,6 +25,7 @@ from cloudmersive_image_api_client.api.info_api import InfoApi
 from cloudmersive_image_api_client.api.nsfw_api import NsfwApi
 from cloudmersive_image_api_client.api.recognize_api import RecognizeApi
 from cloudmersive_image_api_client.api.resize_api import ResizeApi
+from cloudmersive_image_api_client.api.text_generation_api import TextGenerationApi
 
 # import ApiClient
 from cloudmersive_image_api_client.api_client import ApiClient
@@ -32,6 +33,7 @@ from cloudmersive_image_api_client.configuration import Configuration
 # import models into sdk package
 from cloudmersive_image_api_client.models.age_detection_result import AgeDetectionResult
 from cloudmersive_image_api_client.models.color_result import ColorResult
+from cloudmersive_image_api_client.models.create_handwriting_request import CreateHandwritingRequest
 from cloudmersive_image_api_client.models.detected_license_plate import DetectedLicensePlate
 from cloudmersive_image_api_client.models.detected_object import DetectedObject
 from cloudmersive_image_api_client.models.dominant_color_result import DominantColorResult

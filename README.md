@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 This Python package provides a native API client for [Cloudmersive Image Recognition and Processing](https://www.cloudmersive.com/image-recognition-and-processing-api)
 
 - API version: v1
-- Package version: 3.0.2
+- Package version: 3.0.3
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -127,12 +127,14 @@ Class | Method | HTTP request | Description
 *RecognizeApi* | [**recognize_find_symbol**](docs/RecognizeApi.md#recognize_find_symbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
 *ResizeApi* | [**resize_post**](docs/ResizeApi.md#resize_post) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
 *ResizeApi* | [**resize_resize_simple**](docs/ResizeApi.md#resize_resize_simple) | **POST** /image/resize/target/{width}/{height} | Resize an image
+*TextGenerationApi* | [**text_generation_create_handwriting_png**](docs/TextGenerationApi.md#text_generation_create_handwriting_png) | **POST** /image/text/create/handwriting/png | Create an image of handwriting in PNG format
 
 
 ## Documentation For Models
 
  - [AgeDetectionResult](docs/AgeDetectionResult.md)
  - [ColorResult](docs/ColorResult.md)
+ - [CreateHandwritingRequest](docs/CreateHandwritingRequest.md)
  - [DetectedLicensePlate](docs/DetectedLicensePlate.md)
  - [DetectedObject](docs/DetectedObject.md)
  - [DominantColorResult](docs/DominantColorResult.md)

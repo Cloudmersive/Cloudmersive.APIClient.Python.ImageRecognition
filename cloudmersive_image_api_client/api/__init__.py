@@ -12,3 +12,4 @@ from cloudmersive_image_api_client.api.info_api import InfoApi
 from cloudmersive_image_api_client.api.nsfw_api import NsfwApi
 from cloudmersive_image_api_client.api.recognize_api import RecognizeApi
 from cloudmersive_image_api_client.api.resize_api import ResizeApi
+from cloudmersive_image_api_client.api.text_generation_api import TextGenerationApi
