@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 This Python package provides a native API client for [Cloudmersive Image Recognition and Processing](https://www.cloudmersive.com/image-recognition-and-processing-api)
 
 - API version: v1
-- Package version: 3.0.3
+- Package version: 3.0.4
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.
@@ -125,6 +125,9 @@ Class | Method | HTTP request | Description
 *RecognizeApi* | [**recognize_detect_text_large**](docs/RecognizeApi.md#recognize_detect_text_large) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 *RecognizeApi* | [**recognize_detect_vehicle_license_plates**](docs/RecognizeApi.md#recognize_detect_vehicle_license_plates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
 *RecognizeApi* | [**recognize_find_symbol**](docs/RecognizeApi.md#recognize_find_symbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
+*RecognizeApi* | [**recognize_similarity_compare**](docs/RecognizeApi.md#recognize_similarity_compare) | **POST** /image/recognize/similarity/compare | Compare two images for similarity
+*RecognizeApi* | [**recognize_similarity_hash**](docs/RecognizeApi.md#recognize_similarity_hash) | **POST** /image/recognize/similarity/hash | Generate a perceptual image hash
+*RecognizeApi* | [**recognize_similarity_hash_distance**](docs/RecognizeApi.md#recognize_similarity_hash_distance) | **POST** /image/recognize/similarity/hash/distance | Calculates the similarity between two perceptual image hashes
 *ResizeApi* | [**resize_post**](docs/ResizeApi.md#resize_post) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
 *ResizeApi* | [**resize_resize_simple**](docs/ResizeApi.md#resize_resize_simple) | **POST** /image/resize/target/{width}/{height} | Resize an image
 *TextGenerationApi* | [**text_generation_create_handwriting_png**](docs/TextGenerationApi.md#text_generation_create_handwriting_png) | **POST** /image/text/create/handwriting/png | Create an image of handwriting in PNG format
@@ -158,6 +161,10 @@ Class | Method | HTTP request | Description
  - [ImageDescriptionResponse](docs/ImageDescriptionResponse.md)
  - [ImageMetadata](docs/ImageMetadata.md)
  - [ImageMetadataExifValue](docs/ImageMetadataExifValue.md)
+ - [ImageSimilarityComparisonResponse](docs/ImageSimilarityComparisonResponse.md)
+ - [ImageSimilarityHashDistanceRequest](docs/ImageSimilarityHashDistanceRequest.md)
+ - [ImageSimilarityHashDistanceResponse](docs/ImageSimilarityHashDistanceResponse.md)
+ - [ImageSimilarityHashResponse](docs/ImageSimilarityHashResponse.md)
  - [NsfwResult](docs/NsfwResult.md)
  - [ObjectDetectionResult](docs/ObjectDetectionResult.md)
  - [PersonWithAge](docs/PersonWithAge.md)

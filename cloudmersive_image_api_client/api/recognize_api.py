@@ -836,3 +836,316 @@ class RecognizeApi(object):
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+    def recognize_similarity_compare(self, base_image, comparison_image, **kwargs):  # noqa: E501
+        """Compare two images for similarity  # noqa: E501
+
+        Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.recognize_similarity_compare(base_image, comparison_image, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file base_image: Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+        :param file comparison_image: Image to compare to the base image. (required)
+        :param str recognition_mode: Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.recognize_similarity_compare_with_http_info(base_image, comparison_image, **kwargs)  # noqa: E501
+        else:
+            (data) = self.recognize_similarity_compare_with_http_info(base_image, comparison_image, **kwargs)  # noqa: E501
+            return data
+
+    def recognize_similarity_compare_with_http_info(self, base_image, comparison_image, **kwargs):  # noqa: E501
+        """Compare two images for similarity  # noqa: E501
+
+        Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.recognize_similarity_compare_with_http_info(base_image, comparison_image, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file base_image: Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+        :param file comparison_image: Image to compare to the base image. (required)
+        :param str recognition_mode: Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['base_image', 'comparison_image', 'recognition_mode']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method recognize_similarity_compare" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'base_image' is set
+        if ('base_image' not in params or
+                params['base_image'] is None):
+            raise ValueError("Missing the required parameter `base_image` when calling `recognize_similarity_compare`")  # noqa: E501
+        # verify the required parameter 'comparison_image' is set
+        if ('comparison_image' not in params or
+                params['comparison_image'] is None):
+            raise ValueError("Missing the required parameter `comparison_image` when calling `recognize_similarity_compare`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'recognition_mode' in params:
+            header_params['recognitionMode'] = params['recognition_mode']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+        if 'base_image' in params:
+            local_var_files['baseImage'] = params['base_image']  # noqa: E501
+        if 'comparison_image' in params:
+            local_var_files['comparisonImage'] = params['comparison_image']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/recognize/similarity/compare', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def recognize_similarity_hash(self, image_file, **kwargs):  # noqa: E501
+        """Generate a perceptual image hash  # noqa: E501
+
+        Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.recognize_similarity_hash(image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :param str recognition_mode: Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+        :return: ImageSimilarityHashResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.recognize_similarity_hash_with_http_info(image_file, **kwargs)  # noqa: E501
+        else:
+            (data) = self.recognize_similarity_hash_with_http_info(image_file, **kwargs)  # noqa: E501
+            return data
+
+    def recognize_similarity_hash_with_http_info(self, image_file, **kwargs):  # noqa: E501
+        """Generate a perceptual image hash  # noqa: E501
+
+        Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.recognize_similarity_hash_with_http_info(image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :param str recognition_mode: Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+        :return: ImageSimilarityHashResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['image_file', 'recognition_mode']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method recognize_similarity_hash" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'image_file' is set
+        if ('image_file' not in params or
+                params['image_file'] is None):
+            raise ValueError("Missing the required parameter `image_file` when calling `recognize_similarity_hash`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'recognition_mode' in params:
+            header_params['recognitionMode'] = params['recognition_mode']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+        if 'image_file' in params:
+            local_var_files['imageFile'] = params['image_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/recognize/similarity/hash', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ImageSimilarityHashResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def recognize_similarity_hash_distance(self, request, **kwargs):  # noqa: E501
+        """Calculates the similarity between two perceptual image hashes  # noqa: E501
+
+        Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.recognize_similarity_hash_distance(request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ImageSimilarityHashDistanceRequest request: (required)
+        :return: ImageSimilarityHashDistanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.recognize_similarity_hash_distance_with_http_info(request, **kwargs)  # noqa: E501
+        else:
+            (data) = self.recognize_similarity_hash_distance_with_http_info(request, **kwargs)  # noqa: E501
+            return data
+
+    def recognize_similarity_hash_distance_with_http_info(self, request, **kwargs):  # noqa: E501
+        """Calculates the similarity between two perceptual image hashes  # noqa: E501
+
+        Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.recognize_similarity_hash_distance_with_http_info(request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param ImageSimilarityHashDistanceRequest request: (required)
+        :return: ImageSimilarityHashDistanceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method recognize_similarity_hash_distance" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'request' is set
+        if ('request' not in params or
+                params['request'] is None):
+            raise ValueError("Missing the required parameter `request` when calling `recognize_similarity_hash_distance`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'request' in params:
+            body_params = params['request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/recognize/similarity/hash/distance', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ImageSimilarityHashDistanceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
