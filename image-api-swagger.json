@@ -7,7 +7,7 @@
   },
   "host": "api.cloudmersive.com",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/image/ai-detection/file": {

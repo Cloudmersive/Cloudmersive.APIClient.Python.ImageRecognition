@@ -3,7 +3,7 @@
 """
     imageapi
 
-    Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
+    
 
     OpenAPI spec version: v1
     
@@ -45,6 +45,6 @@ setup(
     include_package_data=True,
     long_description=long_description,
     long_description_content_type='text/markdown'
-    Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
+    
 
 )

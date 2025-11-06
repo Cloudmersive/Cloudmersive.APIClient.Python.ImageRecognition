@@ -1,6 +1,6 @@
 # cloudmersive_image_api_client.AiImageDetectionApi
 
-All URIs are relative to *https://api.cloudmersive.com*
+All URIs are relative to *http://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

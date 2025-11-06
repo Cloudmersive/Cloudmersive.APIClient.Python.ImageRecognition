@@ -40,7 +40,7 @@ class Configuration(object):
             return
 
         # Default Base url
-        self.host = "https://api.cloudmersive.com"
+        self.host = "http://api.cloudmersive.com"
         # Temp file folder for downloading files
         self.temp_folder_path = None
 
