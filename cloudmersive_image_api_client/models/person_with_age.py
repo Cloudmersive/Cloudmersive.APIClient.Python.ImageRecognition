@@ -3,7 +3,7 @@
 """
     imageapi
 
-    Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
+    Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -34,23 +34,32 @@ class PersonWithAge(object):
         'face_location': 'Face',
         'age_classification_confidence': 'float',
         'age_class': 'str',
-        'age': 'float'
+        'age': 'float',
+        'gender_classification': 'str',
+        'gender_female_confidence': 'float',
+        'gender_male_confidence': 'float'
     }
 
     attribute_map = {
         'face_location': 'FaceLocation',
         'age_classification_confidence': 'AgeClassificationConfidence',
         'age_class': 'AgeClass',
-        'age': 'Age'
+        'age': 'Age',
+        'gender_classification': 'GenderClassification',
+        'gender_female_confidence': 'GenderFemaleConfidence',
+        'gender_male_confidence': 'GenderMaleConfidence'
     }
 
-    def __init__(self, face_location=None, age_classification_confidence=None, age_class=None, age=None):  # noqa: E501
+    def __init__(self, face_location=None, age_classification_confidence=None, age_class=None, age=None, gender_classification=None, gender_female_confidence=None, gender_male_confidence=None):  # noqa: E501
         """PersonWithAge - a model defined in Swagger"""  # noqa: E501
 
         self._face_location = None
         self._age_classification_confidence = None
         self._age_class = None
         self._age = None
+        self._gender_classification = None
+        self._gender_female_confidence = None
+        self._gender_male_confidence = None
         self.discriminator = None
 
         if face_location is not None:
@@ -61,6 +70,12 @@ class PersonWithAge(object):
             self.age_class = age_class
         if age is not None:
             self.age = age
+        if gender_classification is not None:
+            self.gender_classification = gender_classification
+        if gender_female_confidence is not None:
+            self.gender_female_confidence = gender_female_confidence
+        if gender_male_confidence is not None:
+            self.gender_male_confidence = gender_male_confidence
 
     @property
     def face_location(self):
@@ -135,6 +150,7 @@ class PersonWithAge(object):
     def age(self):
         """Gets the age of this PersonWithAge.  # noqa: E501
 
+        The specific estimated age of the person  # noqa: E501
 
         :return: The age of this PersonWithAge.  # noqa: E501
         :rtype: float
@@ -145,12 +161,82 @@ class PersonWithAge(object):
     def age(self, age):
         """Sets the age of this PersonWithAge.
 
+        The specific estimated age of the person  # noqa: E501
 
         :param age: The age of this PersonWithAge.  # noqa: E501
         :type: float
         """
 
         self._age = age
+
+    @property
+    def gender_classification(self):
+        """Gets the gender_classification of this PersonWithAge.  # noqa: E501
+
+        Gender estimation classification as Female or Male  # noqa: E501
+
+        :return: The gender_classification of this PersonWithAge.  # noqa: E501
+        :rtype: str
+        """
+        return self._gender_classification
+
+    @gender_classification.setter
+    def gender_classification(self, gender_classification):
+        """Sets the gender_classification of this PersonWithAge.
+
+        Gender estimation classification as Female or Male  # noqa: E501
+
+        :param gender_classification: The gender_classification of this PersonWithAge.  # noqa: E501
+        :type: str
+        """
+
+        self._gender_classification = gender_classification
+
+    @property
+    def gender_female_confidence(self):
+        """Gets the gender_female_confidence of this PersonWithAge.  # noqa: E501
+
+        Confidence level of classification as female; possible values are between 0.0 and 1.0  # noqa: E501
+
+        :return: The gender_female_confidence of this PersonWithAge.  # noqa: E501
+        :rtype: float
+        """
+        return self._gender_female_confidence
+
+    @gender_female_confidence.setter
+    def gender_female_confidence(self, gender_female_confidence):
+        """Sets the gender_female_confidence of this PersonWithAge.
+
+        Confidence level of classification as female; possible values are between 0.0 and 1.0  # noqa: E501
+
+        :param gender_female_confidence: The gender_female_confidence of this PersonWithAge.  # noqa: E501
+        :type: float
+        """
+
+        self._gender_female_confidence = gender_female_confidence
+
+    @property
+    def gender_male_confidence(self):
+        """Gets the gender_male_confidence of this PersonWithAge.  # noqa: E501
+
+        Confidence level of classification as male; possible values are between 0.0 and 1.0  # noqa: E501
+
+        :return: The gender_male_confidence of this PersonWithAge.  # noqa: E501
+        :rtype: float
+        """
+        return self._gender_male_confidence
+
+    @gender_male_confidence.setter
+    def gender_male_confidence(self, gender_male_confidence):
+        """Sets the gender_male_confidence of this PersonWithAge.
+
+        Confidence level of classification as male; possible values are between 0.0 and 1.0  # noqa: E501
+
+        :param gender_male_confidence: The gender_male_confidence of this PersonWithAge.  # noqa: E501
+        :type: float
+        """
+
+        self._gender_male_confidence = gender_male_confidence
 
     def to_dict(self):
         """Returns the model properties as a dict"""

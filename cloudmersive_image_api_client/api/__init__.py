@@ -3,6 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from cloudmersive_image_api_client.api.ai_image_detection_api import AiImageDetectionApi
 from cloudmersive_image_api_client.api.artistic_api import ArtisticApi
 from cloudmersive_image_api_client.api.convert_api import ConvertApi
 from cloudmersive_image_api_client.api.edit_api import EditApi

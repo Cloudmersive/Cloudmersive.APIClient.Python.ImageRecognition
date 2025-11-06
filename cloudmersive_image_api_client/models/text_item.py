@@ -3,7 +3,7 @@
 """
     imageapi
 
-    Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
+    Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -31,6 +31,7 @@ class TextItem(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'detected_text': 'str',
         'left_x': 'int',
         'top_y': 'int',
         'width': 'int',
@@ -38,21 +39,25 @@ class TextItem(object):
     }
 
     attribute_map = {
+        'detected_text': 'DetectedText',
         'left_x': 'LeftX',
         'top_y': 'TopY',
         'width': 'Width',
         'height': 'Height'
     }
 
-    def __init__(self, left_x=None, top_y=None, width=None, height=None):  # noqa: E501
+    def __init__(self, detected_text=None, left_x=None, top_y=None, width=None, height=None):  # noqa: E501
         """TextItem - a model defined in Swagger"""  # noqa: E501
 
+        self._detected_text = None
         self._left_x = None
         self._top_y = None
         self._width = None
         self._height = None
         self.discriminator = None
 
+        if detected_text is not None:
+            self.detected_text = detected_text
         if left_x is not None:
             self.left_x = left_x
         if top_y is not None:
@@ -61,6 +66,29 @@ class TextItem(object):
             self.width = width
         if height is not None:
             self.height = height
+
+    @property
+    def detected_text(self):
+        """Gets the detected_text of this TextItem.  # noqa: E501
+
+        Text detected in the image  # noqa: E501
+
+        :return: The detected_text of this TextItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._detected_text
+
+    @detected_text.setter
+    def detected_text(self, detected_text):
+        """Sets the detected_text of this TextItem.
+
+        Text detected in the image  # noqa: E501
+
+        :param detected_text: The detected_text of this TextItem.  # noqa: E501
+        :type: str
+        """
+
+        self._detected_text = detected_text
 
     @property
     def left_x(self):

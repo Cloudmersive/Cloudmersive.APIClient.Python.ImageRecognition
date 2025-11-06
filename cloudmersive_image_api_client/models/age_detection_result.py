@@ -3,7 +3,7 @@
 """
     imageapi
 
-    Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
+    Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -84,7 +84,7 @@ class AgeDetectionResult(object):
     def people_with_age(self):
         """Gets the people_with_age of this AgeDetectionResult.  # noqa: E501
 
-        People in the image annotated with age information  # noqa: E501
+        People in the image annotated with age and gender information  # noqa: E501
 
         :return: The people_with_age of this AgeDetectionResult.  # noqa: E501
         :rtype: list[PersonWithAge]
@@ -95,7 +95,7 @@ class AgeDetectionResult(object):
     def people_with_age(self, people_with_age):
         """Sets the people_with_age of this AgeDetectionResult.
 
-        People in the image annotated with age information  # noqa: E501
+        People in the image annotated with age and gender information  # noqa: E501
 
         :param people_with_age: The people_with_age of this AgeDetectionResult.  # noqa: E501
         :type: list[PersonWithAge]

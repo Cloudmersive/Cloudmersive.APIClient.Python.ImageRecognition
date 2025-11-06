@@ -3,7 +3,7 @@
 """
     imageapi
 
-    Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
+    Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -34,9 +34,9 @@ class NsfwApi(object):
         self.api_client = api_client
 
     def nsfw_classify(self, image_file, **kwargs):  # noqa: E501
-        """Not safe for work NSFW racy content classification  # noqa: E501
+        """Not safe for work (NSFW) content classification for Images  # noqa: E501
 
-        Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.  # noqa: E501
+        Classify an image into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG or GIF.  Consumes 20 API calls.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.nsfw_classify(image_file, async_req=True)
@@ -56,9 +56,9 @@ class NsfwApi(object):
             return data
 
     def nsfw_classify_with_http_info(self, image_file, **kwargs):  # noqa: E501
-        """Not safe for work NSFW racy content classification  # noqa: E501
+        """Not safe for work (NSFW) content classification for Images  # noqa: E501
 
-        Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.  # noqa: E501
+        Classify an image into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG or GIF.  Consumes 20 API calls.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.nsfw_classify_with_http_info(image_file, async_req=True)
@@ -118,6 +118,303 @@ class NsfwApi(object):
 
         return self.api_client.call_api(
             '/image/nsfw/classify', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='NsfwResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def nsfw_classify_advanced(self, image_file, **kwargs):  # noqa: E501
+        """Advanced content moderation and not safe for work (NSFW) content classification for Images  # noqa: E501
+
+        Uses advanced AI to classify an image into Not Safe For Work (NSFW) or not and determine if it contains nudity, graphic violence, non-graphic violence, self-harm, hate, potential illegal activity, medical imagery, or profanity.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG.  Consumes 100 API calls.  Requires Managed Instance or Private Cloud deployment, and a GPU.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.nsfw_classify_advanced(image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: NsfwAdvancedResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.nsfw_classify_advanced_with_http_info(image_file, **kwargs)  # noqa: E501
+        else:
+            (data) = self.nsfw_classify_advanced_with_http_info(image_file, **kwargs)  # noqa: E501
+            return data
+
+    def nsfw_classify_advanced_with_http_info(self, image_file, **kwargs):  # noqa: E501
+        """Advanced content moderation and not safe for work (NSFW) content classification for Images  # noqa: E501
+
+        Uses advanced AI to classify an image into Not Safe For Work (NSFW) or not and determine if it contains nudity, graphic violence, non-graphic violence, self-harm, hate, potential illegal activity, medical imagery, or profanity.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG.  Consumes 100 API calls.  Requires Managed Instance or Private Cloud deployment, and a GPU.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.nsfw_classify_advanced_with_http_info(image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: NsfwAdvancedResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['image_file']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method nsfw_classify_advanced" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'image_file' is set
+        if ('image_file' not in params or
+                params['image_file'] is None):
+            raise ValueError("Missing the required parameter `image_file` when calling `nsfw_classify_advanced`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'image_file' in params:
+            local_var_files['imageFile'] = params['image_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/nsfw/classify/advanced', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='NsfwAdvancedResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def nsfw_classify_document(self, image_file, **kwargs):  # noqa: E501
+        """Not safe for work (NSFW) content classification for Documents  # noqa: E501
+
+        Classify a document (PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT) into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Consumes 20 API calls per image.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.nsfw_classify_document(image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: NsfwResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.nsfw_classify_document_with_http_info(image_file, **kwargs)  # noqa: E501
+        else:
+            (data) = self.nsfw_classify_document_with_http_info(image_file, **kwargs)  # noqa: E501
+            return data
+
+    def nsfw_classify_document_with_http_info(self, image_file, **kwargs):  # noqa: E501
+        """Not safe for work (NSFW) content classification for Documents  # noqa: E501
+
+        Classify a document (PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT) into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Consumes 20 API calls per image.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.nsfw_classify_document_with_http_info(image_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+        :return: NsfwResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['image_file']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method nsfw_classify_document" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'image_file' is set
+        if ('image_file' not in params or
+                params['image_file'] is None):
+            raise ValueError("Missing the required parameter `image_file` when calling `nsfw_classify_document`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'image_file' in params:
+            local_var_files['imageFile'] = params['image_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/nsfw/classify/document', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='NsfwResult',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def nsfw_classify_video(self, video_file, **kwargs):  # noqa: E501
+        """Not safe for work (NSFW) content classification for Video  # noqa: E501
+
+        Classify a video into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be MP4, MOV, WEBM, MKV, AVI, FLV, MPG, GIF.  Consumes 20 API calls per frame analyzed.  Requires Cloudmersive Managed Instance or Private Cloud deployment.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.nsfw_classify_video(video_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file video_file: Video file to perform the operation on.  Common file formats such as MP4, MPG are supported. (required)
+        :return: NsfwResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.nsfw_classify_video_with_http_info(video_file, **kwargs)  # noqa: E501
+        else:
+            (data) = self.nsfw_classify_video_with_http_info(video_file, **kwargs)  # noqa: E501
+            return data
+
+    def nsfw_classify_video_with_http_info(self, video_file, **kwargs):  # noqa: E501
+        """Not safe for work (NSFW) content classification for Video  # noqa: E501
+
+        Classify a video into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be MP4, MOV, WEBM, MKV, AVI, FLV, MPG, GIF.  Consumes 20 API calls per frame analyzed.  Requires Cloudmersive Managed Instance or Private Cloud deployment.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.nsfw_classify_video_with_http_info(video_file, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param file video_file: Video file to perform the operation on.  Common file formats such as MP4, MPG are supported. (required)
+        :return: NsfwResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['video_file']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method nsfw_classify_video" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'video_file' is set
+        if ('video_file' not in params or
+                params['video_file'] is None):
+            raise ValueError("Missing the required parameter `video_file` when calling `nsfw_classify_video`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'video_file' in params:
+            local_var_files['videoFile'] = params['video_file']  # noqa: E501
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json', 'text/json', 'application/xml', 'text/xml'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['Apikey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/image/nsfw/classify/video', 'POST',
             path_params,
             query_params,
             header_params,

@@ -3,7 +3,7 @@
 """
     imageapi
 
-    Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
+    Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -341,7 +341,7 @@ class FaceApi(object):
     def face_detect_age(self, image_file, **kwargs):  # noqa: E501
         """Detect the age of people in an image  # noqa: E501
 
-        Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  # noqa: E501
+        Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.face_detect_age(image_file, async_req=True)
@@ -363,7 +363,7 @@ class FaceApi(object):
     def face_detect_age_with_http_info(self, image_file, **kwargs):  # noqa: E501
         """Detect the age of people in an image  # noqa: E501
 
-        Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  # noqa: E501
+        Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.face_detect_age_with_http_info(image_file, async_req=True)
@@ -440,7 +440,7 @@ class FaceApi(object):
     def face_detect_gender(self, image_file, **kwargs):  # noqa: E501
         """Detect the gender of people in an image  # noqa: E501
 
-        Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  # noqa: E501
+        Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.face_detect_gender(image_file, async_req=True)
@@ -448,7 +448,7 @@ class FaceApi(object):
 
         :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-        :return: GenderDetectionResult
+        :return: AgeDetectionResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -462,7 +462,7 @@ class FaceApi(object):
     def face_detect_gender_with_http_info(self, image_file, **kwargs):  # noqa: E501
         """Detect the gender of people in an image  # noqa: E501
 
-        Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  # noqa: E501
+        Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.face_detect_gender_with_http_info(image_file, async_req=True)
@@ -470,7 +470,7 @@ class FaceApi(object):
 
         :param async_req bool
         :param file image_file: Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-        :return: GenderDetectionResult
+        :return: AgeDetectionResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -528,7 +528,7 @@ class FaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='GenderDetectionResult',  # noqa: E501
+            response_type='AgeDetectionResult',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

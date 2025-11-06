@@ -3,7 +3,7 @@
 """
     imageapi
 
-    Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
+    Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -31,6 +31,7 @@ class FineTextItem(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'detected_text': 'str',
         'top_left_x': 'int',
         'top_left_y': 'int',
         'top_right_x': 'int',
@@ -45,6 +46,7 @@ class FineTextItem(object):
     }
 
     attribute_map = {
+        'detected_text': 'DetectedText',
         'top_left_x': 'TopLeftX',
         'top_left_y': 'TopLeftY',
         'top_right_x': 'TopRightX',
@@ -58,9 +60,10 @@ class FineTextItem(object):
         'angle': 'Angle'
     }
 
-    def __init__(self, top_left_x=None, top_left_y=None, top_right_x=None, top_right_y=None, bottom_left_x=None, bottom_left_y=None, bottom_right_x=None, bottom_right_y=None, width=None, height=None, angle=None):  # noqa: E501
+    def __init__(self, detected_text=None, top_left_x=None, top_left_y=None, top_right_x=None, top_right_y=None, bottom_left_x=None, bottom_left_y=None, bottom_right_x=None, bottom_right_y=None, width=None, height=None, angle=None):  # noqa: E501
         """FineTextItem - a model defined in Swagger"""  # noqa: E501
 
+        self._detected_text = None
         self._top_left_x = None
         self._top_left_y = None
         self._top_right_x = None
@@ -74,6 +77,8 @@ class FineTextItem(object):
         self._angle = None
         self.discriminator = None
 
+        if detected_text is not None:
+            self.detected_text = detected_text
         if top_left_x is not None:
             self.top_left_x = top_left_x
         if top_left_y is not None:
@@ -96,6 +101,29 @@ class FineTextItem(object):
             self.height = height
         if angle is not None:
             self.angle = angle
+
+    @property
+    def detected_text(self):
+        """Gets the detected_text of this FineTextItem.  # noqa: E501
+
+        Detected text in the image  # noqa: E501
+
+        :return: The detected_text of this FineTextItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._detected_text
+
+    @detected_text.setter
+    def detected_text(self, detected_text):
+        """Sets the detected_text of this FineTextItem.
+
+        Detected text in the image  # noqa: E501
+
+        :param detected_text: The detected_text of this FineTextItem.  # noqa: E501
+        :type: str
+        """
+
+        self._detected_text = detected_text
 
     @property
     def top_left_x(self):

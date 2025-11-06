@@ -4,7 +4,7 @@
 """
     imageapi
 
-    Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
+    Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.  # noqa: E501
 
     OpenAPI spec version: v1
     
@@ -19,7 +19,6 @@ from cloudmersive_image_api_client.models.age_detection_result import AgeDetecti
 from cloudmersive_image_api_client.models.color_result import ColorResult
 from cloudmersive_image_api_client.models.create_handwriting_request import CreateHandwritingRequest
 from cloudmersive_image_api_client.models.detected_license_plate import DetectedLicensePlate
-from cloudmersive_image_api_client.models.detected_object import DetectedObject
 from cloudmersive_image_api_client.models.dominant_color_result import DominantColorResult
 from cloudmersive_image_api_client.models.draw_polygon_instance import DrawPolygonInstance
 from cloudmersive_image_api_client.models.draw_polygon_request import DrawPolygonRequest
@@ -37,7 +36,7 @@ from cloudmersive_image_api_client.models.face_with_landmarks import FaceWithLan
 from cloudmersive_image_api_client.models.find_symbol_result import FindSymbolResult
 from cloudmersive_image_api_client.models.fine_text_detection_result import FineTextDetectionResult
 from cloudmersive_image_api_client.models.fine_text_item import FineTextItem
-from cloudmersive_image_api_client.models.gender_detection_result import GenderDetectionResult
+from cloudmersive_image_api_client.models.image_ai_detection_result import ImageAiDetectionResult
 from cloudmersive_image_api_client.models.image_description_response import ImageDescriptionResponse
 from cloudmersive_image_api_client.models.image_metadata import ImageMetadata
 from cloudmersive_image_api_client.models.image_metadata_exif_value import ImageMetadataExifValue
@@ -45,10 +44,9 @@ from cloudmersive_image_api_client.models.image_similarity_comparison_response i
 from cloudmersive_image_api_client.models.image_similarity_hash_distance_request import ImageSimilarityHashDistanceRequest
 from cloudmersive_image_api_client.models.image_similarity_hash_distance_response import ImageSimilarityHashDistanceResponse
 from cloudmersive_image_api_client.models.image_similarity_hash_response import ImageSimilarityHashResponse
+from cloudmersive_image_api_client.models.nsfw_advanced_result import NsfwAdvancedResult
 from cloudmersive_image_api_client.models.nsfw_result import NsfwResult
-from cloudmersive_image_api_client.models.object_detection_result import ObjectDetectionResult
 from cloudmersive_image_api_client.models.person_with_age import PersonWithAge
-from cloudmersive_image_api_client.models.person_with_gender import PersonWithGender
 from cloudmersive_image_api_client.models.polygon_point import PolygonPoint
 from cloudmersive_image_api_client.models.recognition_outcome import RecognitionOutcome
 from cloudmersive_image_api_client.models.text_detection_result import TextDetectionResult

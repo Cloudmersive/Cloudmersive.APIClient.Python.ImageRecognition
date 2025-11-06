@@ -1,5 +1,10 @@
 ﻿Remove-Item –path ./cloudmersive_image_api_client –recurse
-& java -jar swagger-codegen-cli-2.4.14.jar generate -i https://api.cloudmersive.com/swagger/api/image -l python -c packageconfig.json
+
+Invoke-WebRequest -Uri 'https://api.cloudmersive.com/image/docs/v1/swagger' -OutFile '.\image-api-swagger.json'
+(Get-Content .\image-api-swagger.json).replace('localhost', "api.cloudmersive.com") | Set-Content .\image-api-swagger.json
+(Get-Content .\image-api-swagger.json).replace('"http"', '"https"') | Set-Content .\image-api-swagger.json
+
+& java -jar swagger-codegen-cli-2.4.14.jar generate -i .\image-api-swagger.json -l python -c packageconfig.json
 #(Get-Content ./client/package.json).replace('v1', '1.0.1') | Set-Content ./client/package.json
 
 # Bug fix
